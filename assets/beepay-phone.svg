@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="420" height="840" viewBox="0 0 420 840" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>BeePay Phone Mockup</title>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111217"/>
+      <stop offset="1" stop-color="#0A0B0E"/>
+    </linearGradient>
+    <linearGradient id="beepayGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE870"/>
+      <stop offset="1" stop-color="#F7D308"/>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="24" stdDeviation="36" flood-color="#000" flood-opacity=".55"/>
+    </filter>
+    <clipPath id="screenClip">
+      <rect x="22" y="28" width="376" height="784" rx="34"/>
+    </clipPath>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <rect x="6" y="6" width="408" height="828" rx="48" fill="url(#bgGrad)" stroke="#23242A" stroke-width="2"/>
+    <rect x="10" y="180" width="6" height="72" rx="3" fill="#2B2C31"/>
+    <rect x="10" y="270" width="6" height="42" rx="3" fill="#2B2C31"/>
+    <rect x="404" y="220" width="6" height="78" rx="3" fill="#2B2C31"/>
+    <rect x="20" y="26" width="380" height="788" rx="36" fill="#0C0D12" stroke="#1A1B20" stroke-width="2"/>
+    <path d="M168 26 h84 a14 14 0 0 1 14 14 v10 a20 20 0 0 1 -20 20 h-72 a20 20 0 0 1 -20 -20 v-10 a14 14 0 0 1 14 -14z" fill="#0C0D12"/>
+    <circle cx="244" cy="46" r="4" fill="#1F2026"/>
+    <circle cx="214" cy="46" r="3" fill="#1F2026"/>
+  </g>
+
+  <g clip-path="url(#screenClip)">
+    <rect x="22" y="28" width="376" height="784" rx="34" fill="#0E0F14"/>
+    <ellipse cx="322" cy="120" rx="220" ry="120" fill="#F7D308" opacity=".14"/>
+    <ellipse cx="120" cy="680" rx="220" ry="140" fill="#F7D308" opacity=".10"/>
+
+    <g transform="translate(58,104)">
+      <rect width="154" height="34" rx="17" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+      <circle cx="17" cy="17" r="9" fill="url(#beepayGrad)"/>
+      <text x="34" y="22" font-family="Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial" font-size="14" font-weight="700" letter-spacing=".2" fill="#fff">
+        BeePay
+      </text>
+    </g>
+
+    <g transform="translate(58,168)">
+      <rect width="304" height="180" rx="16" fill="url(#beepayGrad)"/>
+      <rect x="16" y="20" width="54" height="10" rx="5" fill="rgba(0,0,0,.22)"/>
+      <rect x="16" y="40" width="104" height="10" rx="5" fill="rgba(0,0,0,.22)"/>
+      <rect x="16" y="60" width="80" height="10" rx="5" fill="rgba(0,0,0,.22)"/>
+      <circle cx="264" cy="44" r="18" fill="rgba(0,0,0,.18)"/>
+      <circle cx="292" cy="44" r="18" fill="rgba(0,0,0,.14)"/>
+      <text x="16" y="130" font-family="Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial" font-size="28" font-weight="900" fill="#0D0B00">
+        12,540.00
+      </text>
+      <text x="16" y="154" font-family="Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial" font-size="12" fill="#3A3200">
+        Wallet Balance (KES)
+      </text>
+    </g>
+
+    <g transform="translate(58,372)">
+      <g transform="translate(0,0)">
+        <rect width="92" height="92" rx="16" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+        <circle cx="46" cy="38" r="14" fill="url(#beepayGrad)"/>
+        <rect x="26" y="64" width="40" height="8" rx="4" fill="#D7D7DC"/>
+        <text x="24" y="86" font-family="Inter" font-size="10" fill="#9EA0A7">Send</text>
+      </g>
+      <g transform="translate(106,0)">
+        <rect width="92" height="92" rx="16" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+        <circle cx="46" cy="38" r="14" fill="url(#beepayGrad)"/>
+        <rect x="18" y="64" width="56" height="8" rx="4" fill="#D7D7DC"/>
+        <text x="18" y="86" font-family="Inter" font-size="10" fill="#9EA0A7">Receive</text>
+      </g>
+      <g transform="translate(212,0)">
+        <rect width="92" height="92" rx="16" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+        <circle cx="46" cy="38" r="14" fill="url(#beepayGrad)"/>
+        <rect x="24" y="64" width="44" height="8" rx="4" fill="#D7D7DC"/>
+        <text x="20" y="86" font-family="Inter" font-size="10" fill="#9EA0A7">Top Up</text>
+      </g>
+    </g>
+
+    <g transform="translate(58,488)">
+      <rect width="304" height="244" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.10)"/>
+      <g transform="translate(0,10)">
+        <circle cx="26" cy="22" r="12" fill="url(#beepayGrad)"/>
+        <rect x="50" y="12" width="150" height="10" rx="5" fill="#D7D7DC"/>
+        <rect x="50" y="28" width="100" height="8" rx="4" fill="#9EA0A7"/>
+        <rect x="240" y="16" width="48" height="12" rx="6" fill="rgba(247,211,8,.2)" stroke="rgba(247,211,8,.45)"/>
+      </g>
+      <g transform="translate(0,70)">
+        <circle cx="26" cy="22" r="12" fill="url(#beepayGrad)"/>
+        <rect x="50" y="12" width="150" height="10" rx="5" fill="#D7D7DC"/>
+        <rect x="50" y="28" width="100" height="8" rx="4" fill="#9EA0A7"/>
+        <rect x="240" y="16" width="48" height="12" rx="6" fill="rgba(247,211,8,.2)" stroke="rgba(247,211,8,.45)"/>
+      </g>
+      <g transform="translate(0,130)">
+        <circle cx="26" cy="22" r="12" fill="url(#beepayGrad)"/>
+        <rect x="50" y="12" width="150" height="10" rx="5" fill="#D7D7DC"/>
+        <rect x="50" y="28" width="100" height="8" rx="4" fill="#9EA0A7"/>
+        <rect x="240" y="16" width="48" height="12" rx="6" fill="rgba(247,211,8,.2)" stroke="rgba(247,211,8,.45)"/>
+      </g>
+      <g transform="translate(0,190)">
+        <circle cx="26" cy="22" r="12" fill="url(#beepayGrad)"/>
+        <rect x="50" y="12" width="150" height="10" rx="5" fill="#D7D7DC"/>
+        <rect x="50" y="28" width="100" height="8" rx="4" fill="#9EA0A7"/>
+        <rect x="240" y="16" width="48" height="12" rx="6" fill="rgba(247,211,8,.2)" stroke="rgba(247,211,8,.45)"/>
+      </g>
+    </g>
+
+    <g transform="translate(58,748)">
+      <rect width="304" height="48" rx="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.10)"/>
+      <rect x="126" y="12" width="52" height="6" rx="3" fill="#D7D7DC" opacity=".8"/>
+    </g>
+  </g>
+</svg>
