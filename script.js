@@ -1,4 +1,3 @@
-// Mobile nav
 const nav = document.querySelector('.nav');
 const toggle = document.querySelector('.nav-toggle');
 toggle.addEventListener('click', () => {
@@ -7,10 +6,8 @@ toggle.addEventListener('click', () => {
   nav.classList.toggle('open');
 });
 
-// Year
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Simple count-up for stats
 const counters = document.querySelectorAll('[data-count]');
 const ease = t => 1 - Math.pow(1 - t, 3);
 
@@ -40,7 +37,6 @@ const observer = new IntersectionObserver((entries) => {
 
 counters.forEach(c => observer.observe(c));
 
-// Accordion UX: allow only one open in Services
 document.querySelectorAll('#services details').forEach(d => {
   d.addEventListener('toggle', () => {
     if(d.open){
@@ -51,7 +47,6 @@ document.querySelectorAll('#services details').forEach(d => {
   });
 });
 
-// Play button functionality
 const playBtn = document.querySelector('.play-btn');
 const beepayVideo = document.getElementById('beepayVideo');
 
@@ -62,7 +57,6 @@ if (playBtn && beepayVideo) {
   });
 }
 
-// Fade-in animation when page loads
 window.addEventListener('load', () => {
   const videoSection = document.querySelector('.video');
   if (videoSection) {
@@ -70,7 +64,6 @@ window.addEventListener('load', () => {
   }
 });
 
-// Reveal phone animation on scroll
 window.addEventListener("scroll", () => {
   const card = document.querySelector(".phone-card");
   const rect = card.getBoundingClientRect();
@@ -87,7 +80,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Testimonial navigation
+// Testimonial navigatio  n
 const testimonials = document.querySelectorAll(".testimonial");
 let index = 0;
 
@@ -103,7 +96,6 @@ document.getElementById("prev").addEventListener("click", () => {
   testimonials[index].classList.add("active", "fade");
 });
 
-// Scroll fade-in animation
 window.addEventListener("scroll", () => {
   const section = document.querySelector(".testimonials-inner");
   const rect = section.getBoundingClientRect();
@@ -112,7 +104,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Fade in FAQ section when scrolled into view
 window.addEventListener("scroll", () => {
   const faq = document.querySelector(".faq-section");
   const rect = faq.getBoundingClientRect();
@@ -121,18 +112,15 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Automatically set current year
 document.getElementById("year").textContent = new Date().getFullYear();
 
 const langBtn = document.getElementById("lang-btn");
 const langMenu = document.getElementById("lang-menu");
 
-// 1️⃣ Toggle dropdown visibility
 langBtn.addEventListener("click", () => {
   langMenu.classList.toggle("show");
 });
 
-// 2️⃣ Change language when user clicks
 langMenu.addEventListener("click", (e) => {
   if (e.target.dataset.lang) {
     const selectedLang = e.target.dataset.lang.toUpperCase();
@@ -142,7 +130,6 @@ langMenu.addEventListener("click", (e) => {
   }
 });
 
-// 3️⃣ Change site content (simple example)
 const translations = {
   en: {
     title: "Welcome to BeePay",
@@ -166,7 +153,7 @@ const translations = {
   },
 };
 
-// Example: dynamically update page text
+
 function changeLanguage(lang) {
   const t = translations[lang];
   if (!t) return;
@@ -174,11 +161,11 @@ function changeLanguage(lang) {
   document.querySelector("#title").textContent = t.title;
   document.querySelector("#tagline").textContent = t.tagline;
 
-  // Optional: store language in localStorage
+  
   localStorage.setItem("preferredLang", lang);
 }
 
-// Restore saved language on load
+
 window.addEventListener("load", () => {
   const savedLang = localStorage.getItem("preferredLang") || "en";
   langBtn.textContent = savedLang.toUpperCase();
@@ -197,3 +184,25 @@ style.textContent = `
 @keyframes float2 { from { transform: translateY(0); } to { transform: translateY(-20px); } }
 `;
 document.head.appendChild(style);
+
+
+const scrollObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.scroll-animate, .scroll-fade, .scroll-left, .scroll-right, .scroll-zoom, .scroll-stagger')
+  .forEach(el => scrollObserver.observe(el));
+
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  setTimeout(() => {
+    preloader.classList.add("fade-out");
+  }, 600);
+});
+
+
+ 

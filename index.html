@@ -1,41 +1,73 @@
 <!doctype html>
 <html lang="en">
   <head>
+        <!-- Logo Icon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/logo icon.png" />
+    <link rel="alternate icon" type="image/png" href="./assets/logo icon.png" />
+    <link rel="apple-touch-icon" href="./assets/logo icon.png" sizes="180x180" />
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="theme-color" content="#F7D308" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Beepay </title>
-    <meta name="description" content="Send money in seconds. Track every transaction in real time. Enjoy transparent fees and 24/7 secure access, all in one powerful app built for your financial freedom." />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <title>BeePay: Secure Payments</title>
+    <meta
+      name="description"
+      content="Send money in seconds. Track every transaction in real time. Enjoy transparent fees and 24/7 secure access with BeePay — your trusted digital payment platform."
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/9a1b6f2512.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="./styles.css" />
   </head>
+
   <body>
+   
+    <div id="preloader">
+      <div class="loader-bee">
+        <img src="./assets/logo icon.png" alt="BeePay Bee Icon" />
+      </div>
+    </div>
+
     <header class="site-header" id="top">
       <nav class="nav container">
-        <a class="brand" href="#top" aria-label="BeeClub Home">
-          <img src="./assets/logo.svg" alt="BeeClub" height="32" />
+        <a class="brand" href="#top" aria-label="BeePay Home">
+          <img src="./assets/app logo1.png" alt="BeePay" height="32" />
         </a>
-        <button class="nav-toggle" aria-expanded="false" aria-label="Open menu">
+
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">
           <span></span><span></span><span></span>
         </button>
+
         <ul class="nav-links">
           <li><a href="#features">Solutions</a></li>
           <li><a href="#services">How It Works</a></li>
           <li><a href="#advantage">Security</a></li>
           <li><a href="#faq">Help Center</a></li>
         </ul>
+
         <div class="nav-cta">
-                  <!-- Language Switcher -->
-        <div class="language-switcher">
-          <button class="chip" aria-label="Language" id="lang-btn">EN</button>
-          <ul class="lang-menu" id="lang-menu">
-            <li data-lang="en">🇬🇧 English</li>
-            <li data-lang="es">🇪🇸 Español</li>
-            <li data-lang="fr">🇫🇷 Français</li>
-            <li data-lang="de">🇩🇪 Deutsch</li>
-            <li data-lang="sw">🇰🇪 Kiswahili</li>
-          </ul>
-        </div>
+          <!-- Language Switcher -->
+          <div class="language-switcher">
+            <button class="chip" aria-label="Language" id="lang-btn">EN</button>
+            <ul class="lang-menu" id="lang-menu">
+              <li data-lang="en">🇬🇧 English</li>
+              <li data-lang="es">🇪🇸 Español</li>
+              <li data-lang="fr">🇫🇷 Français</li>
+              <li data-lang="de">🇩🇪 Deutsch</li>
+              <li data-lang="sw">🇰🇪 Kiswahili</li>
+            </ul>
+          </div>
 
           <a class="button primary" href="#download">Download App</a>
         </div>
@@ -43,340 +75,292 @@
     </header>
 
     <main>
-      <!-- Hero -->
-      <section class="hero container">
-        <div class="hero-copy">
-          <p class="eyebrow">50k+ Total Users</p>
-          <h1>Send<span class="highlight"> money in</span><br/>seconds!</h1>
-          <p class="sub">Move money in seconds. Watch every payment in real time. Total control, zero delays. BeePay makes payments effortless.</p>
+      <!-- ================= HERO ================= -->
+      <section id="hero" class="hero container scroll-fade">
+        <div class="hero-copy scroll-stagger">
+          <p class="eyebrow">50k+ Active Users</p>
+          <h1>Send<span > Money in</span><br />Seconds!</h1>
+          <p class="sub">
+            Move money in seconds. Watch every payment in real time.
+            Transparent, secure, and effortless — BeePay puts you in control.
+          </p>
           <div class="hero-cta">
-            <a class="button primary" href="#download">Get 20% off (new users)</a>
-            <a class="button ghost" href="#video">Watch how it works</a>
+            <a class="button primary" href="#download">Get 20% Off (New Users)</a>
+            <a class="button ghost" href="#video">Watch How It Works</a>
           </div>
+
           <div class="stats">
             <div class="stat"><span data-count="12500">0</span>+ <small>Users</small></div>
-            <div class="stat"><span data-count="50">0</span>M+ <small>Monthly Transactions</small></div>
+            <div class="stat"><span data-count="50">0</span>M+ <small>Transactions</small></div>
             <div class="stat"><span data-count="4.9">0</span> <small>App Rating</small></div>
           </div>
         </div>
-        <div class="hero-media">
+
+        <div class="hero-media scroll-right">
           <div class="phone-card glow">
-            <img src="./assets/beepay-phone.svg" alt="App preview" loading="eager" />
+            <img src="./assets/beepay-phone.svg" alt="BeePay App Preview" loading="eager" />
           </div>
-          <div class="floating-card secondary">
-            <strong>Instant Transfers</strong>
-            <div class="stat"><span data-count="50">0</span>M+ <small>Monthly Transactions</small></div>
-          </div>
-          <div class="floating-card secondary2">
-            <strong>Instant Transfers</strong>
-            <div class="stat"><span data-count="50">0</span>M+ <small>Monthly Transactions</small></div>
-             </div>
+        </div>
       </section>
 
-      <!-- Video -->
-    <section id="video" class="video container fade-in">
-      <div class="video-wrapper">
-        <p class="eyebrow">50k+ Total Users</p>
-        <!-- Heading behind video -->
-        <h2 class="video-heading-behind">
-          <span>Smarter</span> Payment Solution          
-        </h2>
+      <!-- ================= VIDEO SECTION ================= -->
+      <section id="video" class="video container scroll-animate">
+        <div class="video-wrapper">
+          <p class="eyebrow">What is Beeplay?</p>
+          <h2 class="video-heading-behind">
+            <span>Smarter</span> Payment Solution
+          </h2>
 
-        <!-- Video container overlapping the heading -->
-        <div class="video-box overlap">
-          <video id="beepayVideo" poster="./assets/design1.webp">
-            <source src="./assets/promo.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-
-          <!-- Play button -->
-          <button class="play-btn" aria-label="Play BeePay Video">▶</button>
-        </div>
-
-        <!-- Footer text and CTA -->
-        <div class="video-footer">
-          <p>
-            BeePay empowers you to send, receive, and manage your money instantly.Secure, transparent, and available 24/7.
-          </p>
-          <a href="#features" class="button primary explore-btn">Explore More Features →</a>
-        </div>
-      </div>
-    </section>
-
-
-
-<!-- Services -->
-<section id="services" class="services container">
-  <div class="services-content">
-    <!-- Left Side -->
-    <div class="services-text">
-      <div class="section-head">
-        <h2>Choose Your <span class="highlight">Payment Type</span></h2>
-        <p>Instant, smart, and secure. Tailor your payment to fit every transaction.</p>
-      </div>
-
-      <div class="accordion">
-        <details open>
-          <summary class="service-option active">
-            <div class="icon-box">
-              <i class="fas fa-bolt"></i>
-            </div>
-            <div class="text">
-              <h3>Instant Transfer</h3>
-              <p>Send money in seconds</p>
-            </div>
-          </summary>
-          <div class="panel">
-            <ul class="bullets">
-              <li>⚡ Real-time confirmation</li>
-              <li>💳 Works across banks</li>
-              <li>🔒 256-bit encrypted</li>
-            </ul>
+          <div class="video-box overlap">
+            <video id="beepayVideo" poster="./assets/design1.webp">
+              <source src="./assets/promo.mp4" type="video/mp4" />
+            </video>
+            <button class="play-btn" aria-label="Play BeePay Video">▶</button>
           </div>
-        </details>
 
-        <details>
-          <summary class="service-option">
-            <div class="icon-box">
-              <i class="fas fa-qrcode"></i>
-            </div>
-            <div class="text">
-              <h3>QR Pay</h3>
-              <p>Scan and pay instantly</p>
-            </div>
-          </summary>
-          <div class="panel">
-            <ul class="bullets">
-              <li>📱 Contactless checkout</li>
-              <li>🏪 Accepted at 10K+ stores</li>
-              <li>🔔 Instant notification</li>
-            </ul>
+          <div class="video-footer">
+            <p>
+              BeePay empowers you to send, receive, and manage your money
+              instantly — secure, transparent, and available 24/7.
+            </p>
+            <a href="#features" class="button primary">Explore More Features →</a>
           </div>
-        </details>
+        </div>
+      </section>
 
-        <details>
-          <summary class="service-option">
-            <div class="icon-box">
-              <i class="fas fa-wallet"></i>
+    
+      <section id="services" class="services container scroll-stagger">
+        <div class="services-content">
+          <div class="services-text">
+            <div class="section-head"><p class="eyebrow">Our Services</p>
+              <h2>Choose  Your Payment Type</h2>
             </div>
-            <div class="text">
-              <h3>Smart Wallet</h3>
-              <p>Manage all payments in one place</p>
+
+            <div class="accordion">
+              <details open class="scroll-animate">
+                <summary class="service-option ">
+                  <div class="icon-box">⚡</div>
+                  <div class="text">
+                    <h3>Instant Transfer</h3>
+                    <p>Send money in seconds</p>
+                  </div>
+                </summary>
+                <div class="panel">
+                  <ul class="bullets">
+                    <li>Real-time confirmation</li>
+                    <li>Cross-bank compatible</li>
+                    <li>256-bit encrypted</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="scroll-animate">
+                <summary class="service-option">
+                  <div class="icon-box">📱</div>
+                  <div class="text">
+                    <h3>QR Pay</h3>
+                    <p>Scan and pay instantly</p>
+                  </div>
+                </summary>
+                <div class="panel">
+                  <ul class="bullets">
+                    <li>Contactless checkout</li>
+                    <li>Accepted at 10K+ stores</li>
+                    <li>Instant notifications</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="scroll-animate">
+                <summary class="service-option">
+                  <div class="icon-box">👛</div>
+                  <div class="text">
+                    <h3>Smart Wallet</h3>
+                    <p>Manage all payments in one place</p>
+                  </div>
+                </summary>
+                <div class="panel">
+                  <ul class="bullets">
+                    <li>Smart spend insights</li>
+                    <li>Auto-save mode</li>
+                    <li>Weekly analytics</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="scroll-animate">
+                <summary class="service-option">
+                  <div class="icon-box">🌍</div>
+                  <div class="text">
+                    <h3>Global Payments</h3>
+                    <p>Send money anywhere, anytime</p>
+                  </div>
+                </summary>
+                <div class="panel">
+                  <ul class="bullets">
+                    <li>100+ currencies</li>
+                    <li>Low FX fees</li>
+                    <li>Live exchange rates</li>
+                  </ul>
+                </div>
+              </details>
             </div>
-          </summary>
-          <div class="panel">
-            <ul class="bullets">
-              <li>💡 Smart spend insights</li>
-              <li>💰 Auto-save mode</li>
-              <li>📊 Weekly analytics</li>
-            </ul>
           </div>
-        </details>
 
-        <details>
-          <summary class="service-option">
-            <div class="icon-box">
-              <i class="fas fa-globe"></i>
+          <div class="services-visual scroll-right">
+            <div class="phone-card glow">
+              <img src="assets/mockup2.png" alt="BeePay App UI" />
             </div>
-            <div class="text">
-              <h3>Global Payments</h3>
-              <p>Send money anywhere, anytime</p>
-            </div>
-          </summary>
-          <div class="panel">
-            <ul class="bullets">
-              <li>🌍 100+ currencies supported</li>
-              <li>💸 Lowest FX fees</li>
-              <li>📈 Live exchange rates</li>
-            </ul>
           </div>
-        </details>
-      </div>
-    </div>
-
-    <!-- Right Side (Phone Mockup) -->
-    <div class="services-visual">
-      <div class="phone-card">
-        <img src="assets/beepay-phone.svg" alt="BeePay App UI" />
-      </div>
-    </div>
-  </div>
-</section>
-
-
-     <!-- Advantage -->
-<section id="advantage" class="advantage container">
-
- <!-- Background Video -->
-  <video class="bg-video" autoplay muted loop playsinline>
-    <source src="assets/rings.mp4" type="video/mp4">
-  </video>
-
-  <div class="adv-header">
-    <button class="adv-tag">💡 What's the benefit of BeePay?</button>
-    <h2><span class="highlight">BeePay</span> Payment Advantage</h2>
-  </div>
-
-  <div class="advantage-wrapper">
-    <!-- Left Column -->
-    <div class="adv-left">
-      <article class="adv-card">
-        <div class="icon"><i class="fas fa-dollar-sign"></i></div>
-        <h3>Transparent Pricing</h3>
-        <p>Know the exact fee before you send. No surprises, no hidden costs.</p>
-      </article>
-
-      <article class="adv-card">
-        <div class="icon"><i class="fas fa-rocket"></i></div>
-        <h3>Instant Transfers</h3>
-        <p>Send and receive money globally in seconds — 24/7, anytime.</p>
-      </article>
-
-      <article class="adv-card">
-        <div class="icon"><i class="fas fa-shield-alt"></i></div>
-        <h3>Smart Security</h3>
-        <p>Advanced encryption and AI fraud detection to keep your funds safe.</p>
-      </article>
-    </div>
-
-    <!-- Center Phone -->
-    <div class="adv-center">
-      <div class="phone-glow"></div>
-      <div class="phone-frame">
-        <img src="assets/beepay-phone.svg" alt="BeePay App">
-      </div>
-    </div>
-
-    <!-- Right Column -->
-    <div class="adv-right">
-      <article class="adv-card">
-        <div class="icon"><i class="fas fa-user-check"></i></div>
-        <h3>Verified Accounts</h3>
-        <p>Every BeePay user is identity-verified, ensuring trust in every transaction.</p>
-      </article>
-
-      <article class="adv-card">
-        <div class="icon"><i class="fas fa-globe"></i></div>
-        <h3>Global Reach</h3>
-        <p>Connect across 100+ countries with real-time currency conversion.</p>
-      </article>
-
-      <article class="adv-card">
-        <div class="icon"><i class="fas fa-credit-card"></i></div>
-        <h3>Flexible Payment Options</h3>
-        <p>Use cards, wallets, or QR payments — wherever you are.</p>
-      </article>
-    </div>
-  </div>
-
-  <div class="adv-footer">
-    <button class="cta-btn">Explore More Features</button>
-  </div>
-</section>
-
-     <!-- Testimonials -->
-<section id="testimonials" class="testimonials">
-  <!-- Background Video -->
-  <video class="bg-video" autoplay muted loop playsinline>
-    <source src="assets/logo.svg" type="image/svg+xml">
-  </video>
-  <div class="testimonials-inner">
-    <div class="quote-icon">“</div>
-
-    <div class="testimonial active">
-      <p class="quote">
-        “BeePay made transferring money to my family so simple. Instant, reliable, and completely secure.”
-      </p>
-      <div class="author">
-        <img src="assets/user1.jpg" alt="User photo" />
-        <div class="details">
-          <h4>Jane Mwangi</h4>
-          <p>Freelancer, Nairobi</p>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <div class="testimonial">
-      <p class="quote">
-        “I paid for my trip with BeePay QR — fast, contactless, and no transaction delays. A true game-changer.”
-      </p>
-      <div class="author">
-        <img src="assets/user2.jpg" alt="User photo" />
-        <div class="details">
-          <h4>David Kamau</h4>
-          <p>Traveler, Mombasa</p>
+     
+      <section id="advantage" class="advantage container scroll-fade">
+        <video class="bg-video" autoplay muted loop playsinline>
+          <source src="assets/rings.mp4" type="video/mp4" />
+        </video>
+
+        <div class="adv-header scroll-animate">
+          <button class="adv-tag">💡 Why Choose BeePay?</button>
+          <h2><span class="highlight">BeePay</span> Payment<br> Advantage</h2>
         </div>
-      </div>
-    </div>
 
-    <div class="testimonial">
-      <p class="quote">
-        “My business now runs smoother. BeePay helps me receive payments instantly with no hidden fees.”
-      </p>
-      <div class="author">
-        <img src="assets/user3.jpg" alt="User photo" />
-        <div class="details">
-          <h4>Mary Atieno</h4>
-          <p>Store Owner, Kisumu</p>
+        <div class="advantage-wrapper scroll-stagger">
+          <div class="adv-left">
+            <article class="adv-card"><span class="highlight">💸 Transparent Pricing</span>
+            <p>Know your fees upfront.No hidden charges <br>or surprise deductions.</p>
+            </article>
+            <article class="adv-card"><span class="highlight">⚡ Instant Transfers</span>
+            <p>Send money in seconds.No waiting for bank transfers.</p>
+            </article>
+            <article class="adv-card"><span class="highlight">🛡️ Smart Security</span>
+            <p>Stay protected with advanced encryption and fraud detection.</p>
+            </article>
+          </div>
+
+          <div class="adv-center">
+            <div class="phone-glow"></div>
+            <div class="phone-frame">
+              <img src="assets/advantage.png" alt="BeePay App" />
+            </div>
+          </div>
+
+          <div class="adv-right">
+            <article class="adv-card"><span class="highlight">✅ Verified Accounts</span>
+                   <p>Every BeePay user is identity-verified for trusted, secure transactions.</p>
+            </article>
+            <article class="adv-card"><span class="highlight">🌐 Global Reach</span>
+                  <p>Send money to anyone, anywhere in the world with low fees.</p>
+            </article>
+            <article class="adv-card"><span class="highlight">💳 Flexible Options</span>
+                    <p>Choose your preferred payment method for seamless transactions.</p>
+            </article>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="nav-buttons">
-      <button id="prev"><i class="fas fa-arrow-left">⬅️</i></button>
-      <button id="next"><i class="fas fa-arrow-right">➡️</i></button>
-    </div>
-  </div>
-</section>
+        <div class="adv-footer scroll-animate">
+          <button class="cta-btn">Explore More Features</button>
+        </div>
+      </section>
 
+      <!-- ================= TESTIMONIALS ================= -->
+      <section id="testimonials" class="testimonials scroll-zoom">
+        <div class="testimonials-inner">
+          <div class="quote-icon">“</div>
 
-      <!-- FAQ Section -->
-<section id="faq" class="faq-section">
-  <div class="faq-container">
+          <div class="testimonial active">
+            <p class="quote">
+              “BeePay made transferring money effortless. Instant, reliable, and completely secure.”
+            </p>
+            <div class="author">
+              <img src="assets/avatar1.png" alt="User photo" />
+              <div class="details">
+                <h4>Jane Mwangi</h4>
+                <p>Freelancer, Nairobi</p>
+              </div>
+            </div>
+          </div>
 
-    <!-- Left side -->
-    <div class="faq-intro">
-      <button class="ask-btn">💬 Ask us anything</button>
-      <h2>Frequently <br><span class="highlight">Asked Questions</span></h2>
-      <p>Common questions from BeePay users who trust us for secure, instant digital payments every day.</p>
-    </div>
+          <div class="testimonial">
+            <p class="quote">
+              “I paid for my trip with BeePay QR. Fast, contactless, and no transaction delays.”
+            </p>
+            <div class="author">
+              <img src="assets/avatar2.png" alt="User photo" />
+              <div class="details">
+                <h4>David Kamau</h4>
+                <p>Traveler, Mombasa</p>
+              </div>
+            </div>
+          </div>
 
-    <!-- Right side -->
-    <div class="faq-list">
-      <details open>
-        <summary>How do I send money with BeePay?</summary>
-        <p>Open the BeePay app, choose “Send Money,” enter the recipient’s details, and confirm the amount. Transfers are instant, secure, and verified in real time.</p>
-      </details>
+          <div class="testimonial">
+            <p class="quote">
+              “BeePay helps me receive payments instantly. No hidden fees, no delays.”
+            </p>
+            <div class="author">
+              <img src="assets/avatar1.png" alt="User photo" />
+              <div class="details">
+                <h4>Mary Atieno</h4>
+                <p>Store Owner, Kisumu</p>
+              </div>
+            </div>
+          </div>
 
-      <details>
-        <summary>What payment methods do you accept?</summary>
-        <p>BeePay supports bank transfers, mobile wallets, debit/credit cards, and QR code payments — all in one seamless app experience.</p>
-      </details>
+          <div class="nav-buttons">
+            <button id="prev">⬅️</button>
+            <button id="next">➡️</button>
+          </div>
+        </div>
+      </section>
 
-      <details>
-        <summary>Is my money safe with BeePay?</summary>
-        <p>Absolutely. Every transaction is protected by advanced encryption and AI-driven fraud detection. Your data and funds are always secure.</p>
-      </details>
+      <!-- ================= FAQ ================= -->
+      <section id="faq" class="faq-section scroll-stagger">
+        <div class="faq-container">
+          <div class="faq-intro scroll-left">
+            <button class="ask-btn">💬 Ask us anything</button>
+            <h2>Frequently <br /><span >Asked Questions</span></h2>
+            <p>
+              Common questions from BeePay users who trust us daily for secure,
+              instant digital payments.
+            </p>
+          </div>
 
-      <details>
-        <summary>Can I use BeePay internationally?</summary>
-        <p>Yes! BeePay allows cross-border payments in 100+ countries, with transparent currency conversion and minimal transaction fees.</p>
-      </details>
+          <div class="faq-list scroll-right">
+            <details open>
+              <summary>How do I send money with BeePay?</summary>
+              <p>
+                Open the app, tap “Send Money,” enter the recipient’s details,
+                and confirm. Transfers are instant and secure.
+              </p>
+            </details>
 
-      <details>
-        <summary>How long do transactions take?</summary>
-        <p>Instant for BeePay-to-BeePay transfers. External bank or card transactions typically clear within minutes, depending on your provider.</p>
-      </details>
+            <details>
+              <summary>What payment methods are supported?</summary>
+              <p>
+                BeePay supports bank transfers, cards, wallets, and QR code payments.
+              </p>
+            </details>
 
-      <details>
-        <summary>What if I need help with a payment?</summary>
-        <p>Our 24/7 support team is always ready to assist via in-app chat or email. BeePay ensures your issues are resolved quickly and securely.</p>
-      </details>
-    </div>
-  </div>
-</section>
+            <details>
+              <summary>Is BeePay secure?</summary>
+              <p>
+                Every transaction uses end-to-end encryption and AI-based fraud detection.
+              </p>
+            </details>
 
-<!-- Hero Section -->
+            <details>
+              <summary>Can I use BeePay internationally?</summary>
+              <p>
+                Yes, BeePay allows cross-border payments in 100+ countries with low fees.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+       <!-- Hero Section -->
 <section class="hero-section">
   <div class="hero-content">
 
@@ -384,7 +368,7 @@
     <div class="hero-left">
       <button class="cta-top">Get Started Now</button>
 
-      <h1>Your Payment <br><span class="highlight">Solution Anywhere</span></h1>
+      <h1>Your Payment <br><span >Solution Anywhere!</span></h1>
 
       <p>BeePay empowers instant, smart, and secure transactions. Send or receive money anytime, in real time, across borders — with complete control.</p>
 
@@ -398,68 +382,60 @@
 
   </div>
 </section>
-
-
-
-      
     </main>
 
+    
     <footer class="site-footer">
-  <div class="footer-container">
+      <div class="footer-container">
+        <div class="footer-left scroll-fade">
+          <img src="./assets/app logo1.png" alt="BeePay Logo" class="footer-logo" />
+          <h3>Your instant, smart payment <br><span class="highlight">solution anywhere!</span></h3>
+          <div class="store-links">
+            <a href="#"><img src="./assets/apple store.svg" alt="App Store" /></a>
+            <a href="#"><img src="./assets/google-play-badge-logo-svgrepo-com.svg" alt="Google Play" /></a>
+          </div>
+          <p class="copyright">
+            © <span id="year"></span> BeePay. All rights reserved. <br>Designed by <a href=""><span class="highlight">DevNjoro</span></a>
+          </p>
+        </div>
 
-    <!-- Left Section -->
-    <div class="footer-left">
-      <img src="./assets/logo.svg" alt="BeePay Logo" class="footer-logo" />
-      <h3>YOUR INSTANT, SMART <br>PAYMENT SOLUTION <br>ANYWHERE!</h3>
+        <div class="footer-center scroll-fade">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><span class="highlight">Phone no:</span><a href="#hero"></a></li>
+            <li><span class="highlight">Email:</span><a href="#services">Services</a></li>
+            <li><span class="highlight">Adress:</span><a href="#advantage">Advantage</a></li>
+            <li><span class="highlight">Website:</span><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
 
-      <div class="store-links">
-        <a href="#"><img src="./assets/appstore-badge.svg" alt="App Store" /></a>
-        <a href="#"><img src="./assets/playstore-badge.svg" alt="Google Play" /></a>
-        <a href="#"><img src="./assets/appgallery-badge.svg" alt="AppGallery" /></a>
-      </div>
+        <div class="footer-right scroll-fade">
+          <h4>Our Support</h4>
+          <ul>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#faq">Help & FAQs</a></li>
+          </ul>
 
-      <p class="copyright">© <span id="year"></span> BeePay. All rights reserved.</p>
-    </div>
+          <div class="socials">
+            <h5>Follow Us</h5>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-x-twitter"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-tiktok"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
 
-    <!-- Center Section -->
-    <div class="footer-center">
-      <h4>Navigation</h4>
-      <ul>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#advantage">Advantage</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-    </div>
-
-    <!-- Right Section -->
-    <div class="footer-right">
-      <h4>Our Support</h4>
-      <ul>
-        <li><a href="#contact">Contact us</a></li>
-        <li><a href="#faq">Help & FAQs</a></li>
-      </ul>
-
-      <div class="socials">
-        <h5>Follow Us</h5>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-x-twitter"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-tiktok"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
+          <div class="legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
         </div>
       </div>
+    </footer>
 
-      <div class="legal-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-
+    
     <script src="./script.js"></script>
   </body>
 </html>
