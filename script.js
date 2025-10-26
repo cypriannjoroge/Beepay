@@ -1,17 +1,3 @@
-/* =========================================================
-   BeePay – main client script
-   - Safe selectors
-   - Responsive nav
-   - Stats counter (IO-triggered)
-   - Services accordion (single-open)
-   - Video play overlay
-   - Section reveal (IO)
-   - Testimonials slider
-   - Language switcher (robust)
-   - Floating phones (reduced motion aware)
-   - Phone/Frame visibility reveal (IO)
-   - Preloader fade-out
-   ========================================================= */
 
 const $  = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
