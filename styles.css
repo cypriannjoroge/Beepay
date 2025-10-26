@@ -121,6 +121,78 @@ body{
   gap:12px
 }
 
+/* =========================
+   🌞 LIGHT MODE THEME
+========================= */
+:root.light-theme {
+  --bg: #ffffff;
+  --surface: #f7f7f7;
+  --text: #111111;
+  --muted: #333333;
+  --brand: #f7d308;
+  --brand-2: #ffe94d;
+  --glass: rgba(0,0,0,.05);
+  --stroke: rgba(0,0,0,.1);
+  --shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+
+/* Adjust background and components */
+.light-theme body {
+  background: radial-gradient(1200px 600px at 80% -10%, rgba(247,211,8,.1), transparent 60%), var(--bg);
+  color: var(--text);
+}
+
+.light-theme .site-header {
+  background: linear-gradient(to bottom, rgba(255,255,255,.95), rgba(255,255,255,.85));
+  border-bottom: 1px solid var(--stroke);
+}
+
+.light-theme .nav-links a {
+  color: var(--text);
+}
+
+.light-theme .button.primary {
+  background: linear-gradient(180deg, var(--brand-2), var(--brand));
+  color: #111;
+}
+
+.light-theme .chip {
+  background: #f7d308;
+  color: #111;
+}
+
+.light-theme .faq-section,
+.light-theme .testimonials,
+.light-theme .services,
+.light-theme .advantage{
+  background: #f7d308;
+  color: #111;
+}
+
+.light-theme .-section {
+  background: #111;
+  color: #111;
+}
+
+.light-theme .site-footer {
+  background: #111;
+  color: #111;
+}
+
+.light-theme .faq-list details,
+.light-theme .testimonial details,
+.light-theme .advantage details,
+.light-theme .accordion details {
+  background: #111;
+  border: 1px solid #ddd;
+  color: #111;
+}
+
+.light-theme .highlight {
+  color: #f7d308;
+}
+
+
 .language-switcher {
   position: relative;
   display: inline-block;
@@ -268,6 +340,106 @@ body{
   transition:.2s
 }
 
+/* ============================
+   📱 MOBILE NAVBAR STYLING
+============================ */
+
+@media (max-width: 768px) and (max-width: 992px) {
+  .site-header {
+    background: linear-gradient(to bottom, rgba(15,15,18,.9), rgba(15,15,18,.4));
+    padding: 0.8rem 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Logo */
+  .brand img {
+    height: 28px;
+    max-width: 100px;
+  }
+
+  /* Hide nav links and extras */
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+
+  /* Hamburger (menu button) */
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f7d308;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .nav-toggle span {
+    background: #000;
+    display: block;
+    height: 2px;
+    width: 16px;
+    border-radius: 2px;
+    margin: 2.5px 0;
+    transition: all 0.3s ease;
+  }
+
+  .nav-toggle:hover {
+    background: #ffe94d;
+    transform: scale(1.05);
+  }
+
+  /* Animate when open */
+  .nav.open .nav-toggle span:nth-child(1) {
+    transform: rotate(45deg) translate(3px, 3px);
+  }
+  .nav.open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav.open .nav-toggle span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+  }
+}
+
+/* Mobile dropdown menu */
+@media (max-width: 768px) {
+  .nav.open .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #111;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 0;
+    gap: 1rem;
+    text-align: center;
+    z-index: 999;
+  }
+
+  .nav.open .nav-links a {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+
+  .nav.open .nav-links a:hover {
+    color: #f7d308;
+  }
+}
+
+
 .hero{
   display:grid;
   grid-template-columns:1.2fr 1fr;
@@ -321,13 +493,13 @@ body{
   opacity: 1;
 }
 
-@media (max-width: 992px){
+@media (max-width: 992px) and (max-width: 1024px) {
   .hero{ grid-template-columns:1fr; gap:24px; text-align:center; }
   .hero-media{ max-width:90%; margin-inline:auto; }
   .hero h1{ font-size: 2rem; }
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) and (max) {
   .hero{ grid-template-columns:1fr; gap:24px; text-align:center; }
   .hero-media{ max-width:90%; margin-inline:auto; }
   .hero h1{ font-size: 2rem; }
@@ -343,7 +515,7 @@ body{
 }
 
 /* 📱 Mobile devices */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (max-width: 1024px) {
   .hero-media {
     align-items: center;
     transform: none;
@@ -364,7 +536,7 @@ body{
   }
 }
 
-/* 🧭 Extra-small screens */
+
 @media (max-width: 480px) {
   .hero-media img {
     max-width: 280px;
@@ -373,7 +545,7 @@ body{
 }
 
 
-@media (max-width: 992px) {
+@media (max-width: 992px) and (max-width: 768px){
   .hero-media {
     align-items: center;
     transform: none;
@@ -394,7 +566,7 @@ body{
   }
 }
 
-/* 🧭 Extra-small screens */
+/*  Extra-small screens */
 @media (max-width: 480px) {
   .hero-media img {
     max-width: 280px;
@@ -512,7 +684,7 @@ body{
   width: min(400px, 100%);
   transition: all 1.2s ease;
   transform: translateY(40px);
-  opacity: 1;
+  opacity: 0;
   background:linear-gradient(180deg, #1a1a21, #0f0f12); 
   box-shadow:var(--shadow)
 }
@@ -538,6 +710,14 @@ body{
   width:100%;
   height:auto
 }
+
+.hero-media .phone-card svg {
+  width: 100%;
+  max-width: 700px;
+  transform: scale(1.15);
+  transform-origin: center;
+}
+
 
 .glow{
   box-shadow: 0 0 0 0 rgba(247,211,8,.6), 0 30px 80px rgba(247,211,8,.16)
@@ -881,8 +1061,91 @@ body{
   align-items: center;
 }
 
+/* ============================================
+   📱 SERVICE SECTION - PHONE MOCKUP STYLING
+============================================ */
+
+.phone-frame-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  aspect-ratio: 9 / 19.5;
+}
+
+/* Yellow background card behind the phone */
+.phone-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #ffe94d, #f7d308);
+  border-radius: 30px;
+  box-shadow: 0 25px 60px rgba(247, 211, 8, 0.3);
+  z-index: 1;
+  transform: scale(1.05);
+}
+
+/* Phone container (black frame) */
+.phone-mockup {
+  position: relative;
+  background: #111;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  width: 88%;
+  aspect-ratio: 9 / 19.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Inner app screenshot */
+.phone-mockup img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 35px;
+}
+
+/* Subtle inner shadow for realism */
+.phone-mockup::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+/* Floating animation */
+.phone-frame-wrap {
+  animation: floatPhone 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatPhone {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .phone-frame-wrap {
+    max-width: 340px;
+  }
+}
+
+@media (max-width: 768px) and (max-width: 992px) {
+  .phone-frame-wrap {
+    max-width: 280px;
+  }
+}
+
+
 .phone-card {
-  background: #f7d308;
+  background: linear-gradient(180deg, #1a1a21, #0f0f12);
   padding: 2rem;
   border-radius: 30px;
   box-shadow: 0 20px 40px rgba(247, 211, 8, 0.3);
@@ -2304,3 +2567,58 @@ a,
   .bullets{grid-template-columns:1fr}
   .floating-card{position:static;margin-top:12px;width:100%}
 }
+
+.phone-frame-wrap {
+  animation: floatPhone 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatPhone {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+.phone-frame-wrap { animation: floatPhone 6s ease-in-out infinite alternate; }
+@keyframes floatPhone { from{transform:translateY(0)} to{transform:translateY(-10px)} }
+
+/* ============================
+  Glow to BeePay SVG
+============================ */
+.beepay-mockup {
+  filter: drop-shadow(0 0 30px rgba(247, 211, 8, 0.3))
+          drop-shadow(0 20px 60px rgba(247, 211, 8, 0.15));
+  transition: filter 0.3s ease, transform 0.4s ease;
+  transform-origin: center;
+}
+
+/* Optional: subtle hover or scroll-in effect */
+.beepay-mockup:hover {
+  filter: drop-shadow(0 0 50px rgba(247, 211, 8, 0.4))
+          drop-shadow(0 30px 80px rgba(247, 211, 8, 0.25));
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .beepay-mockup {
+    filter: drop-shadow(0 0 15px rgba(247, 211, 8, 0.25))
+            drop-shadow(0 10px 40px rgba(247, 211, 8, 0.1));
+  }
+}
+
+/* Subtle float and fade animation for BeePay mockups */
+.beepay-mockup-triple {
+  animation: floatPhones 8s ease-in-out infinite alternate;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.25));
+}
+
+@keyframes floatPhones {
+  from { transform: translateY(0); }
+  to { transform: translateY(-12px); }
+}
+
+/* On scroll or hover highlight */
+.beepay-mockup-triple:hover {
+  filter: drop-shadow(0 0 50px rgba(247,211,8,0.3))
+          drop-shadow(0 20px 60px rgba(247,211,8,0.2));
+  transition: filter 0.5s ease;
+}
+

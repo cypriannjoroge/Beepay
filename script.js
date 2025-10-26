@@ -208,3 +208,19 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
   });
 })();
 
+/* ---------- DARK / LIGHT THEME TOGGLE ---------- */
+(() => {
+  const toggleBtn = document.getElementById("theme-toggle");
+  if (!toggleBtn) return;
+
+  // Load saved preference or default to dark mode
+  const currentTheme = localStorage.getItem("theme") || "dark";
+  document.documentElement.classList.toggle("light-theme", currentTheme === "light");
+  toggleBtn.textContent = currentTheme === "light" ? "🌞" : "🌙";
+
+  toggleBtn.addEventListener("click", () => {
+    const isLight = document.documentElement.classList.toggle("light-theme");
+    localStorage.setItem("theme", isLight ? "light" : "dark");
+    toggleBtn.textContent = isLight ? "🌞" : "🌙";
+  });
+})();
