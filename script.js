@@ -1,208 +1,224 @@
-const nav = document.querySelector('.nav');
-const toggle = document.querySelector('.nav-toggle');
-toggle.addEventListener('click', () => {
-  const expanded = toggle.getAttribute('aria-expanded') === 'true';
-  toggle.setAttribute('aria-expanded', String(!expanded));
-  nav.classList.toggle('open');
-});
+/* =========================================================
+   BeePay – main client script
+   - Safe selectors
+   - Responsive nav
+   - Stats counter (IO-triggered)
+   - Services accordion (single-open)
+   - Video play overlay
+   - Section reveal (IO)
+   - Testimonials slider
+   - Language switcher (robust)
+   - Floating phones (reduced motion aware)
+   - Phone/Frame visibility reveal (IO)
+   - Preloader fade-out
+   ========================================================= */
 
-document.getElementById('year').textContent = new Date().getFullYear();
+const $  = (sel, ctx = document) => ctx.querySelector(sel);
+const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
-const counters = document.querySelectorAll('[data-count]');
-const ease = t => 1 - Math.pow(1 - t, 3);
+/* ---------- NAV TOGGLE ---------- */
+(() => {
+  const nav    = $('.nav');
+  const toggle = $('.nav-toggle');
+  if (!nav || !toggle) return;
+  toggle.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    nav.classList.toggle('open');
+  });
+})();
 
-function animateCount(el){
-  const target = Number(el.dataset.count);
-  const isFloat = !Number.isInteger(target);
-  const start = performance.now();
-  const duration = 1400;
+/* ---------- YEAR STAMP ---------- */
+(() => {
+  const yearEl = $('#year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+})();
 
-  function frame(now){
-    const p = Math.min(1, (now - start) / duration);
-    const val = target * ease(p);
-    el.textContent = isFloat ? val.toFixed(1) : Math.floor(val);
-    if(p < 1) requestAnimationFrame(frame);
+/* ---------- STATS COUNTER (IO) ---------- */
+(() => {
+  const counters = $$('[data-count]');
+  if (!counters.length) return;
+
+  const ease = t => 1 - Math.pow(1 - t, 3);
+
+  function animateCount(el) {
+    const target   = Number(el.dataset.count);
+    const isFloat  = !Number.isInteger(target);
+    const start    = performance.now();
+    const duration = 1400;
+
+    function frame(now) {
+      const p   = Math.min(1, (now - start) / duration);
+      const val = target * ease(p);
+      el.textContent = isFloat ? val.toFixed(1) : Math.floor(val);
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
   }
-  requestAnimationFrame(frame);
-}
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if(e.isIntersecting){
-      animateCount(e.target);
-      observer.unobserve(e.target);
-    }
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCount(e.target);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  counters.forEach(c => io.observe(c));
+})();
+
+/* ---------- SERVICES ACCORDION: only one open ---------- */
+(() => {
+  $$('#services details').forEach(d => {
+    d.addEventListener('toggle', () => {
+      if (d.open) {
+        $$('#services details').forEach(o => { if (o !== d) o.open = false; });
+      }
+    });
   });
-}, {threshold: .6});
+})();
 
-counters.forEach(c => observer.observe(c));
+/* ---------- VIDEO PLAY OVERLAY ---------- */
+(() => {
+  const playBtn = $('.play-btn');
+  const video   = $('#beepayVideo');
+  if (!playBtn || !video) return;
 
-document.querySelectorAll('#services details').forEach(d => {
-  d.addEventListener('toggle', () => {
-    if(d.open){
-      document.querySelectorAll('#services details').forEach(other => {
-        if(other !== d) other.open = false;
-      });
-    }
-  });
-});
-
-const playBtn = document.querySelector('.play-btn');
-const beepayVideo = document.getElementById('beepayVideo');
-
-if (playBtn && beepayVideo) {
   playBtn.addEventListener('click', () => {
-    beepayVideo.play();
+    video.play();
     playBtn.style.display = 'none';
   });
-}
 
-window.addEventListener('load', () => {
-  const videoSection = document.querySelector('.video');
-  if (videoSection) {
-    setTimeout(() => videoSection.classList.add('loaded'), 300);
-  }
-});
-
-window.addEventListener("scroll", () => {
-  const card = document.querySelector(".phone-card");
-  const rect = card.getBoundingClientRect();
-  if (rect.top < window.innerHeight - 100) {
-    card.classList.add("visible");
-  }
-});
-
-window.addEventListener("scroll", () => {
-  const phone = document.querySelector(".phone-frame");
-  const rect = phone.getBoundingClientRect();
-  if (rect.top < window.innerHeight - 100) {
-    phone.classList.add("visible");
-  }
-});
-
-// Testimonial navigatio  n
-const testimonials = document.querySelectorAll(".testimonial");
-let index = 0;
-
-document.getElementById("next").addEventListener("click", () => {
-  testimonials[index].classList.remove("active");
-  index = (index + 1) % testimonials.length;
-  testimonials[index].classList.add("active", "fade");
-});
-
-document.getElementById("prev").addEventListener("click", () => {
-  testimonials[index].classList.remove("active");
-  index = (index - 1 + testimonials.length) % testimonials.length;
-  testimonials[index].classList.add("active", "fade");
-});
-
-window.addEventListener("scroll", () => {
-  const section = document.querySelector(".testimonials-inner");
-  const rect = section.getBoundingClientRect();
-  if (rect.top < window.innerHeight - 150) {
-    section.classList.add("visible");
-  }
-});
-
-window.addEventListener("scroll", () => {
-  const faq = document.querySelector(".faq-section");
-  const rect = faq.getBoundingClientRect();
-  if (rect.top < window.innerHeight - 150) {
-    faq.classList.add("visible");
-  }
-});
-
-document.getElementById("year").textContent = new Date().getFullYear();
-
-const langBtn = document.getElementById("lang-btn");
-const langMenu = document.getElementById("lang-menu");
-
-langBtn.addEventListener("click", () => {
-  langMenu.classList.toggle("show");
-});
-
-langMenu.addEventListener("click", (e) => {
-  if (e.target.dataset.lang) {
-    const selectedLang = e.target.dataset.lang.toUpperCase();
-    langBtn.textContent = selectedLang;
-    langMenu.classList.remove("show");
-    changeLanguage(e.target.dataset.lang);
-  }
-});
-
-const translations = {
-  en: {
-    title: "Welcome to BeePay",
-    tagline: "Instant, smart, and secure digital payments."
-  },
-  es: {
-    title: "Bienvenido a BeePay",
-    tagline: "Pagos digitales instantáneos, inteligentes y seguros."
-  },
-  fr: {
-    title: "Bienvenue sur BeePay",
-    tagline: "Paiements numériques instantanés, intelligents et sécurisés."
-  },
-  de: {
-    title: "Willkommen bei BeePay",
-    tagline: "Sofortige, intelligente und sichere digitale Zahlungen."
-  },
-  sw: {
-    title: "Karibu BeePay",
-    tagline: "Malipo ya haraka, bora, na salama mtandaoni."
-  },
-};
-
-
-function changeLanguage(lang) {
-  const t = translations[lang];
-  if (!t) return;
-
-  document.querySelector("#title").textContent = t.title;
-  document.querySelector("#tagline").textContent = t.tagline;
-
-  
-  localStorage.setItem("preferredLang", lang);
-}
-
-
-window.addEventListener("load", () => {
-  const savedLang = localStorage.getItem("preferredLang") || "en";
-  langBtn.textContent = savedLang.toUpperCase();
-  changeLanguage(savedLang);
-});
-
-const phones = document.querySelectorAll(".phone");
-phones.forEach((phone, i) => {
-  phone.style.animation = `float${i} 5s ease-in-out ${i * 0.6}s infinite alternate`;
-});
-
-const style = document.createElement("style");
-style.textContent = `
-@keyframes float0 { from { transform: translateY(0); } to { transform: translateY(-15px); } }
-@keyframes float1 { from { transform: translateY(-40px); } to { transform: translateY(-55px); } }
-@keyframes float2 { from { transform: translateY(0); } to { transform: translateY(-20px); } }
-`;
-document.head.appendChild(style);
-
-
-const scrollObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('active');
-    }
+  // subtle loaded state for styling
+  window.addEventListener('load', () => {
+    $('.video')?.classList.add('loaded');
   });
-}, { threshold: 0.2 });
+})();
 
-document.querySelectorAll('.scroll-animate, .scroll-fade, .scroll-left, .scroll-right, .scroll-zoom, .scroll-stagger')
-  .forEach(el => scrollObserver.observe(el));
+/* ---------- SECTION REVEAL (IntersectionObserver) ---------- */
+(() => {
+  const toReveal = $$('.scroll-animate, .scroll-fade, .scroll-left, .scroll-right, .scroll-zoom, .scroll-stagger');
+  if (!toReveal.length) return;
 
-window.addEventListener("load", () => {
-  const preloader = document.getElementById("preloader");
-  setTimeout(() => {
-    preloader.classList.add("fade-out");
-  }, 600);
-});
+  const revealIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('active');
+    });
+  }, { threshold: 0.2 });
 
+  toReveal.forEach(el => revealIO.observe(el));
+})();
 
- 
+/* ---------- PHONE CARD / FRAME VISIBILITY (IO) ---------- */
+(() => {
+  const revealTargets = $$('.phone-card, .phone-frame, .testimonials-inner, .faq-section');
+  if (!revealTargets.length) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.2 });
+
+  revealTargets.forEach(t => io.observe(t));
+})();
+
+/* ---------- TESTIMONIALS NAV ---------- */
+(() => {
+  const items = $$('.testimonial');
+  const next  = $('#next');
+  const prev  = $('#prev');
+  if (!items.length || !next || !prev) return;
+
+  let idx = 0;
+  const show = (i) => {
+    items[idx]?.classList.remove('active');
+    idx = (i + items.length) % items.length;
+    items[idx].classList.add('active', 'fade');
+  };
+
+  next.addEventListener('click', () => show(idx + 1));
+  prev.addEventListener('click', () => show(idx - 1));
+})();
+
+/* ---------- LANGUAGE SWITCHER (robust, with fallbacks) ---------- */
+(() => {
+  const langBtn  = $('#lang-btn');
+  const langMenu = $('#lang-menu');
+  if (!langBtn || !langMenu) return;
+
+  const translations = {
+    en: { title: "Welcome to BeePay", tagline: "Instant, smart, and secure digital payments." },
+    es: { title: "Bienvenido a BeePay", tagline: "Pagos digitales instantáneos, inteligentes y seguros." },
+    fr: { title: "Bienvenue sur BeePay", tagline: "Paiements numériques instantanés, intelligents et sécurisés." },
+    de: { title: "Willkommen bei BeePay", tagline: "Sofortige, intelligente und sichere digitale Zahlungen." },
+    sw: { title: "Karibu BeePay", tagline: "Malipo ya haraka, bora, na salama mtandaoni." }
+  };
+
+  function changeLanguage(code) {
+    const t = translations[code]; if (!t) return;
+    const titleEl   = document.querySelector('#title')   || document.querySelector('.hero h1');
+    const taglineEl = document.querySelector('#tagline') || document.querySelector('.hero .sub');
+    if (titleEl)   titleEl.textContent   = t.title;
+    if (taglineEl) taglineEl.textContent = t.tagline;
+    localStorage.setItem('preferredLang', code);
+  }
+
+  langBtn.addEventListener('click', () => langMenu.classList.toggle('show'));
+
+  langMenu.addEventListener('click', (e) => {
+    const lang = e.target?.dataset?.lang;
+    if (!lang) return;
+    langBtn.textContent = lang.toUpperCase();
+    langMenu.classList.remove('show');
+    changeLanguage(lang);
+  });
+
+  // Close on outside click / ESC
+  document.addEventListener('click', (e) => {
+    if (!langMenu.contains(e.target) && e.target !== langBtn) langMenu.classList.remove('show');
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') langMenu.classList.remove('show');
+  });
+
+  // Init
+  window.addEventListener('load', () => {
+    const saved = localStorage.getItem('preferredLang') || 'en';
+    langBtn.textContent = saved.toUpperCase();
+    changeLanguage(saved);
+  });
+})();
+
+/* ---------- FLOATING PHONES (respect reduced motion) ---------- */
+(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const phones = $$('.phone');
+  if (!phones.length) return;
+
+  // inject unique keyframes once
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes float0 { from { transform: translateY(0); } to { transform: translateY(-15px); } }
+    @keyframes float1 { from { transform: translateY(-40px); } to { transform: translateY(-55px); } }
+    @keyframes float2 { from { transform: translateY(0); } to { transform: translateY(-20px); } }
+  `;
+  document.head.appendChild(style);
+
+  phones.forEach((phone, i) => {
+    phone.style.animation = `float${i} 5s ease-in-out ${i * 0.6}s infinite alternate`;
+  });
+})();
+
+/* ---------- PRELOADER FADE-OUT ---------- */
+(() => {
+  const preloader = $('#preloader');
+  if (!preloader) return;
+  window.addEventListener('load', () => {
+    setTimeout(() => preloader.classList.add('fade-out'), 600);
+    setTimeout(() => preloader.remove(), 1600);
+  });
+})();
+
