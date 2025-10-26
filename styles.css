@@ -290,25 +290,128 @@ body{
   line-height:1.05; margin:12px 0 8px
 }
 
-.hero-media{
-  position:relative;
+.hero-media {
+  position: relative;
   transition: all 1.2s ease;
   transform: translateY(40px);
   opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  overflow: hidden;
 }
 
-.hero-media img{
-  transition: all 1.2s ease;
+/* Image inside hero-media */
+.hero-media img {
+  width: 100%;
+  max-width: 600px; /* Prevents image from stretching too wide */
+  height: auto;
+  border-radius: 20px;
+  transition: transform 1.2s ease, opacity 1.2s ease;
   transform: translateY(40px);
+  opacity: 1;
+  align-items: center;
+}
+
+/* When visible (animated in via JS/scroll trigger) */
+.hero-media.visible img {
+  transform: translateY(0);
   opacity: 1;
 }
 
-.hero-cta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:16px
+/* 💻 Tablets and small laptops */
+@media (max-width: 1024px) {
+  .hero-media img {
+    max-width: 480px;
+    transform: translateY(30px);
+  }
 }
+
+/* 📱 Mobile devices */
+@media (max-width: 768px) {
+  .hero-media {
+    align-items: center;
+    transform: none;
+    border-radius: 20px;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+    justify-content: center;
+    padding: 0.5rem;
+    transform: none;
+  }
+
+  .hero-media img {
+    max-width: 100%;
+    transform: translateY(20px);
+    opacity: 0.95;
+  }
+}
+
+/* 🧭 Extra-small screens */
+@media (max-width: 480px) {
+  .hero-media img {
+    max-width: 280px;
+    transform: translateY(10px);
+  }
+}
+
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-badge {
+  display: flex;
+  align-items: center;
+  background: #111;
+  color: #000;
+  border-radius: 60px;
+  padding: 6px 14px 6px 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+  gap: 10px;
+}
+
+.avatars {
+  display: flex;
+}
+
+.avatars img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 0.5px solid #f7d308;
+  margin-left: -10px;
+  object-fit: cover;
+}
+
+.avatars img:first-child {
+  margin-left: 0;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 0.8rem;
+  line-height: 1.1;
+}
+
+.user-info strong {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.user-info span {
+  font-size: 0.75rem;
+  color: #222;
+}
+
 
 .video .eyebrow{
   display:inline-block;
