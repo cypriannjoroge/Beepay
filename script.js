@@ -135,11 +135,11 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
   if (!langBtn || !langMenu) return;
 
   const translations = {
-    en: { title: "Welcome to BeePay", tagline: "Instant, smart, and secure digital payments." },
-    es: { title: "Bienvenido a BeePay", tagline: "Pagos digitales instantáneos, inteligentes y seguros." },
-    fr: { title: "Bienvenue sur BeePay", tagline: "Paiements numériques instantanés, intelligents et sécurisés." },
-    de: { title: "Willkommen bei BeePay", tagline: "Sofortige, intelligente und sichere digitale Zahlungen." },
-    sw: { title: "Karibu BeePay", tagline: "Malipo ya haraka, bora, na salama mtandaoni." }
+    en: { title: "Send Money in seconds!", tagline: "Transparent, secure, and effortless.BeePay puts you in control.Instant, smart, and secure digital payments." },
+    es: { title: "Envía dinero en segundos!", tagline: "Transparente, seguro y sin esfuerzo. BeePay te da el control. Pagos digitales instantáneos, inteligentes y seguros." },
+    fr: { title: "Envoyez de l’argent en quelques secondes !", tagline: "Transparent, sécurisé et sans effort. BeePay vous donne le contrôle. Paiements numériques instantanés, intelligents et sûrs." },
+    de: { title: "Sende Geld in Sekunden!", tagline: "Transparent, sicher und mühelos. BeePay gibt dir die Kontrolle. Sofortige, intelligente und sichere digitale Zahlungen.Sofortige, intelligente und sichere digitale Zahlungen." },
+    sw: { title: "Tuma pesa kwa sekunde!", tagline: "Malipo ya haraka, bora, na salama mtandaoni." }
   };
 
   function changeLanguage(code) {
@@ -223,4 +223,36 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
     localStorage.setItem("theme", isLight ? "light" : "dark");
     toggleBtn.textContent = isLight ? "🌞" : "🌙";
   });
+})();
+
+(() => {
+  const section = document.querySelector('.beepay-brand-section');
+  if (!section) return;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) section.classList.add('visible');
+    });
+  }, { threshold: 0.3 });
+  observer.observe(section);
+})();
+
+document.querySelectorAll('.faq-list details').forEach((el, i) => {
+  el.style.opacity = 0;
+  el.style.transform = 'translateY(30px)';
+  setTimeout(() => {
+    el.style.transition = 'all 0.6s ease';
+    el.style.opacity = 1;
+    el.style.transform = 'translateY(0)';
+  }, i * 100);
+});
+
+(() => {
+  const section = document.querySelector('#advantage');
+  if (!section) return;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) section.classList.add('visible');
+    });
+  }, { threshold: 0.3 });
+  observer.observe(section);
 })();

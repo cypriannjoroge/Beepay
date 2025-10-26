@@ -68,23 +68,20 @@
               <li data-lang="sw">🇰🇪 Kiswahili</li>
             </ul>
           </div>
-          <button id="theme-toggle" class="chip" aria-label="Toggle dark/light mode">🌙</button>
+          <button id="theme-toggle" class="chip1" aria-label="Toggle dark/light mode">🌙</button>
           <a class="button primary" href="#download">Download App</a>
         </div>
       </nav>
     </header>
 
     <main>
+
       <!-- ================= HERO ================= -->
       <section id="hero" class="hero container scroll-fade">
         <div class="hero-copy scroll-stagger">
-          <p class="eyebrow">50k+ Active Users</p>
           <h1><span class="highlight" >Send</span> Money in<br />Seconds!</h1>
-          <p class="sub">
-            Move money in seconds. Watch every payment in real time.
-            Transparent, secure, and effortless — BeePay puts you in control.
-          </p>
-          <div class="hero-cta"><a class="button primary" href="#download">
+          <p class="sub"></p>
+          <div class="hero-cta"><a class="button primary" href="#services">
             <div class="user-badge">
               <div class="avatars">
                 <img src="assets/avatar2.png" alt="User 1">
@@ -99,148 +96,15 @@
 
 
           <div class="stats">
-            <div class="stat"><span data-count="25000">0</span>+ <small>Users Registered</small></div>
+            <div class="stat"><span data-count="25">0</span>K+ <small>Registered Users</small></div>
             <div class="stat"><span data-count="50">0</span>M+ <small>Transactions</small></div>
             <div class="stat"><span data-count="4.9">0</span> <small>App Rating</small></div>
           </div>
         </div>
 
         <div class="hero-media scroll-right">
-          <div class="phone-card">
-        <!-- Responsive BeePay SVG Mockup -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="100%" height="auto" preserveAspectRatio="xMidYMid meet">
-          <defs>
-            <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#0d0d0d" />
-              <stop offset="1" stop-color="#000000" />
-            </linearGradient>
-            <linearGradient id="yellowGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#FFE94D" />
-              <stop offset="1" stop-color="#F7D308" />
-            </linearGradient>
-            <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="24" stdDeviation="24" flood-opacity="0.35" />
-            </filter>
-            <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feOffset dx="0" dy="2" />
-              <feGaussianBlur stdDeviation="6" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="arithmetic" k2="-1" k3="1" />
-            </filter>
-            <style>
-              .muted { fill:#9EA0A6; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
-              .label { fill:#111; font-weight:700; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
-              .title { fill:#0D0D0D; font-weight:800; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
-              .text { fill:#111; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
-              .text-light { fill:#fff; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
-            </style>
-          </defs>
-
-          <!-- Background -->
-          <!-- <rect width="900" height="1200" fill="url(#bgGrad)" /> -->
-
-          <!-- Yellow background glow -->
-          <!-- <ellipse cx="450" cy="280" rx="420" ry="260" fill="url(#yellowGrad)" opacity="0.08" /> -->
-
-          <!-- Phone and UI -->
-          <g transform="translate(140,120)">
-            <rect x="50" y="140" width="520" height="780" rx="28" fill="url(#yellowGrad)" filter="url(#softShadow)" />
-
-            <g transform="translate(90,60)">
-              <rect x="0" y="0" width="440" height="980" rx="70" fill="#1A1A1A" filter="url(#softShadow)" />
-              <rect x="10" y="10" width="420" height="960" rx="62" fill="#0E0E0E" />
-              <rect x="22" y="60" width="396" height="890" rx="44" fill="#F7F7F7" filter="url(#innerShadow)" />
-
-              <rect x="160" y="18" width="120" height="28" rx="14" fill="#111" />
-              <circle cx="330" cy="32" r="6" fill="#111" opacity="0.75" />
-
-              <!-- BeePay App UI -->
-              <text x="220" y="115" text-anchor="middle" class="text" font-size="22" font-weight="800">Send Money</text>
-              <circle cx="60" cy="160" r="20" fill="#111" />
-              <circle cx="60" cy="160" r="12" fill="url(#yellowGrad)" />
-              <text x="90" y="167" class="text" font-size="14" fill="#333">From • BeePay Wallet</text>
-
-              <rect x="40" y="195" width="320" height="72" rx="16" fill="#fff" stroke="#eee" />
-              <circle cx="76" cy="231" r="18" fill="#F7D308" />
-              <text x="110" y="226" class="text" font-size="16" font-weight="700">To: Wesley</text>
-              <text x="110" y="246" class="muted" font-size="12">+254 712 345 678</text>
-
-              <text x="40" y="305" class="muted" font-size="12">Amount</text>
-              <rect x="40" y="316" width="320" height="84" rx="16" fill="#fff" stroke="#eee" />
-              <text x="60" y="366" class="title" font-size="32" font-weight="900">KES 12,500</text>
-
-              <!-- Quick amount chips -->
-              <g transform="translate(40,414)">
-                <rect width="90" height="36" rx="18" fill="#111" />
-                <text x="18" y="24" class="text-light" font-size="14">+1,000</text>
-                <g transform="translate(102,0)">
-                  <rect width="90" height="36" rx="18" fill="#111" />
-                  <text x="18" y="24" class="text-light" font-size="14">+5,000</text>
-                </g>
-                <g transform="translate(204,0)">
-                  <rect width="90" height="36" rx="18" fill="#111" />
-                  <text x="18" y="24" class="text-light" font-size="14">+10,000</text>
-                </g>
-              </g>
-
-              <text x="40" y="480" class="muted" font-size="12">Note (optional)</text>
-              <rect x="40" y="492" width="320" height="60" rx="12" fill="#fff" stroke="#eee" />
-              <text x="56" y="528" class="muted" font-size="13">Thanks for the project!</text>
-
-              <text x="40" y="572" class="muted" font-size="12">Payment method</text>
-              <rect x="40" y="584" width="320" height="64" rx="12" fill="#fff" stroke="#eee" />
-              <rect x="56" y="604" width="80" height="24" rx="6" fill="#111" />
-              <text x="64" y="621" class="text-light" font-size="12">BeePay</text>
-              <text x="148" y="620" class="text" font-size="13">•••• 4312</text>
-
-              <g transform="translate(40,666)">
-                <rect width="320" height="54" rx="12" fill="#FFFBE3" stroke="#F7D308" />
-                <text x="16" y="34" class="text" font-size="13">Live FX: 1 USD = 129.2 KES • Low fees</text>
-              </g>
-
-              <g transform="translate(40,742)">
-                <rect width="320" height="64" rx="16" fill="url(#yellowGrad)" />
-                <text x="160" y="41" text-anchor="middle" class="label" font-size="18">PAY NOW</text>
-              </g>
-
-              <text x="238" y="836" text-anchor="middle" class="muted" font-size="11">Transactions • Wallet • Scan • Settings</text>
-              <rect x="170" y="856" width="120" height="6" rx="3" fill="#DDD" />
-            </g>
-          </g>
-
-          <!-- Floating stats cards -->
-          <g transform="translate(70,780)" filter="url(#softShadow)">
-            <rect width="330" height="210" rx="26" fill="#FFFFFF" />
-            <rect x="26" y="26" width="46" height="46" rx="10" fill="url(#yellowGrad)" />
-            <g transform="translate(39,39)">
-              <circle r="6" fill="#111" />
-              <circle cx="10" cy="0" r="6" fill="#111" />
-              <circle cx="5" cy="10" r="6" fill="#111" />
-              <circle cx="5" cy="-10" r="6" fill="#111" />
-            </g>
-            <text x="26" y="122" class="title" font-size="64" font-weight="900">50K+</text>
-            <text x="26" y="154" class="muted" font-size="18">Active Users</text>
-          </g>
-
-          <g transform="translate(520,520)" filter="url(#softShadow)">
-            <rect width="360" height="240" rx="28" fill="url(#yellowGrad)" />
-            <g transform="translate(26,26)">
-              <rect width="36" height="36" rx="10" fill="#111" />
-              <rect x="46" width="36" height="36" rx="10" fill="#111" />
-              <rect x="92" width="36" height="36" rx="10" fill="#111" />
-              <circle cx="18" cy="18" r="6" fill="#FFE94D" />
-              <circle cx="64" cy="18" r="6" fill="#FFE94D" />
-              <circle cx="110" cy="18" r="6" fill="#FFE94D" />
-            </g>
-            <text x="26" y="116" class="title" font-size="44" font-weight="900">GET THE APP</text>
-            <text x="26" y="146" class="text" font-size="16">Download BeePay & manage</text>
-            <text x="26" y="166" class="text" font-size="16">your money instantly</text>
-            <g transform="translate(26,182)">
-              <rect width="180" height="44" rx="22" fill="#111" />
-              <text x="90" y="28" text-anchor="middle" class="text-light" font-size="14" font-weight="700">Download Now</text>
-            </g>
-          </g>
-        </svg>
-        <!-- End BeePay SVG -->
+          <div class="phone-card ">
+             <img src="assets/home mockup.png" alt="">
            </div>
         </div>
 
@@ -369,7 +233,7 @@
         </div>
       </section>
 
-     <!-- Advantage Section -->
+     <!-- ================= ADVANTAGE SECTION ================= -->
       <section id="advantage" class="advantage container scroll-fade">
         <video class="bg-video" autoplay muted loop playsinline>
           <source src="assets/rings.mp4" type="video/mp4" />
@@ -382,13 +246,13 @@
 
         <div class="advantage-wrapper scroll-stagger">
           <div class="adv-left">
-            <article class="adv-card"><span class="highlight">💸 Transparent Pricing</span>
-            <p>Know your fees upfront.No hidden charges <br>or surprise deductions.</p>
+            <article class="adv-card"><span class="highlight">Transparent Pricing</span>
+            <p>Know your fees upfront.No surprise deductions.</p>
             </article>
-            <article class="adv-card"><span class="highlight">⚡ Instant Transfers</span>
+            <article class="adv-card"><span class="highlight">Instant Transfers</span>
             <p>Send money in seconds.No waiting for bank transfers.</p>
             </article>
-            <article class="adv-card"><span class="highlight">🛡️ Smart Security</span>
+            <article class="adv-card"><span class="highlight">Smart Security</span>
             <p>Stay protected with advanced encryption and fraud detection.</p>
             </article>
           </div>
@@ -401,13 +265,13 @@
           </div>
 
           <div class="adv-right">
-            <article class="adv-card"><span class="highlight">✅ Verified Accounts</span>
-                   <p>Every BeePay user is identity-verified for trusted, secure transactions.</p>
+            <article class="adv-card"><span class="highlight"> Verified Accounts</span>
+                   <p>Every BeePay user is identity-verified for secure transactions.</p>
             </article>
-            <article class="adv-card"><span class="highlight">🌐 Global Reach</span>
+            <article class="adv-card"><span class="highlight"> Global Reach</span>
                   <p>Send money to anyone, anywhere in the world with low fees.</p>
             </article>
-            <article class="adv-card"><span class="highlight">💳 Flexible Options</span>
+            <article class="adv-card"><span class="highlight"> Flexible Options</span>
                     <p>Choose your preferred payment method for seamless transactions.</p>
             </article>
           </div>
@@ -462,59 +326,81 @@
             </div>
           </div>
 
-          <div class="nav-buttons">
-            <button id="prev">⬅️</button>
-            <button id="next">➡️</button>
-          </div>
+          <div class="arrow-controls">
+            <button id="prev"> ← </button>
+            <button id="next"> → </button>
+            </div>
+          
         </div>
       </section>
 
       <!-- ================= FAQ ================= -->
-      <section id="faq" class="faq-section scroll-stagger">
+     <section id="faq" class="faq-section">
         <div class="faq-container">
-          <div class="faq-intro scroll-left">
-            <button class="ask-btn">💬 Ask us anything</button>
-            <h2>Frequently <br /><span >Asked Questions</span></h2>
+          <!-- LEFT SIDE -->
+          <div class="faq-intro">
+            <button class="ask-btn">💬 Ask us a question</button>
+            <h2>Frequently <br><span>Asked Questions</span></h2>
             <p>
-              Common questions from BeePay users who trust us daily for secure,
-              instant digital payments.
+              Questions from BeePay users who trust us every day for fast,
+              secure, and seamless digital payments.
             </p>
           </div>
 
-          <div class="faq-list scroll-right">
+          <!-- RIGHT SIDE -->
+          <div class="faq-list">
             <details open>
               <summary>How do I send money with BeePay?</summary>
               <p>
-                Open the app, tap “Send Money,” enter the recipient’s details,
-                and confirm. Transfers are instant and secure.
+                Open the app, choose “Send Money,” enter the recipient’s details,
+                and confirm the amount. Transfers are instant and fully encrypted.
               </p>
             </details>
 
             <details>
               <summary>What payment methods are supported?</summary>
               <p>
-                BeePay supports bank transfers, cards, wallets, and QR code payments.
+                BeePay supports cards, bank transfers, and mobile wallets.
+                You can also pay with QR codes in supported regions.
               </p>
             </details>
 
             <details>
               <summary>Is BeePay secure?</summary>
               <p>
-                Every transaction uses end-to-end encryption and AI-based fraud detection.
+                Absolutely. All transactions are protected with end-to-end encryption,
+                multi-factor authentication, and real-time fraud monitoring.
               </p>
             </details>
 
             <details>
               <summary>Can I use BeePay internationally?</summary>
               <p>
-                Yes, BeePay allows cross-border payments in 100+ countries with low fees.
+                Yes, BeePay enables cross-border payments in 100+ countries with
+                low conversion rates and instant delivery.
+              </p>
+            </details>
+
+            <details>
+              <summary>What if I need help with a transaction?</summary>
+              <p>
+                You can reach our support team 24/7 directly through the BeePay app chat
+                or by visiting our Help Center.
+              </p>
+            </details>
+
+            <details>
+              <summary>Can I cancel a transaction?</summary>
+              <p>
+                If the recipient hasn’t claimed the funds, you can cancel it from the
+                BeePay app dashboard under “Recent Transactions.”
               </p>
             </details>
           </div>
         </div>
       </section>
 
-       <!-- Hero Section -->
+      <!-- ================= HERO ================= -->
 <section class="hero-section">
   <div class="hero-content">
 
@@ -524,137 +410,21 @@
 
       <h1>Your Payment <br><span >Solution Anywhere!</span></h1>
 
-      <p>BeePay empowers instant, smart, and secure transactions. Send or receive money anytime, in real time, across borders — with complete control.</p>
+      <p>BeePay empowers instant, smart, and secure transactions. Send or receive money anytime, in real time, across borders with complete control.</p>
 
       <button class="cta-download">Download App Right Now →</button>
     </div>
 
     <!-- Right Column (Mockup Image) -->
-   <div class="hero-right">
-  <!-- ✅ Responsive BeePay Triple Phone Mockup -->
-  <svg class="beepay-mockup-triple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="auto" preserveAspectRatio="xMidYMid meet">
-    <defs>
-      <!-- Brand colors -->
-      <linearGradient id="yellowGrad" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#FFE94D"/>
-        <stop offset="100%" stop-color="#F7D308"/>
-      </linearGradient>
-      <style>
-        .bg { fill: #fff; }
-        .text { font-family: 'Inter', sans-serif; fill: #111; font-size: 14px; }
-        .bold { font-weight: 700; }
-        .header { font-size: 18px; font-weight: 800; fill: #000; }
-        .small { font-size: 12px; fill: #666; }
-        .btn { fill: url(#yellowGrad); stroke: none; }
-      </style>
-      <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-        <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="rgba(0,0,0,0.25)"/>
-      </filter>
-    </defs>
-
-    <!-- === Background === -->
-    <rect width="100%" height="100%" fill="url(#yellowGrad)" opacity="0.25"/>
-
-    <!-- === LEFT PHONE: Send Money === -->
-    <g transform="translate(50,80)" filter="url(#shadow)">
-      <rect x="0" y="0" width="300" height="520" rx="40" fill="#111"/>
-      <rect x="10" y="20" width="280" height="480" rx="32" fill="#fefefe"/>
-      <text x="150" y="70" text-anchor="middle" class="header">Send Money</text>
-
-      <!-- Recipient -->
-      <rect x="30" y="100" width="240" height="60" rx="16" fill="#fff" stroke="#ddd"/>
-      <circle cx="60" cy="130" r="18" fill="url(#yellowGrad)"/>
-      <text x="90" y="135" class="bold text">To: Jane Mwangi</text>
-      <text x="90" y="150" class="small">+254 712 345 678</text>
-
-      <!-- Amount -->
-      <text x="30" y="200" class="small">Amount</text>
-      <rect x="30" y="210" width="240" height="60" rx="12" fill="#fff" stroke="#eee"/>
-      <text x="50" y="250" class="bold" font-size="20" fill="#111">KES 12,500</text>
-
-      <!-- Payment button -->
-      <rect x="30" y="360" width="240" height="50" rx="12" class="btn"/>
-      <text x="150" y="392" text-anchor="middle" font-size="16" font-weight="700" fill="#111">PAY NOW</text>
-
-      <!-- Footer -->
-      <text x="150" y="450" text-anchor="middle" class="small">Secure. Instant. Global.</text>
-    </g>
-
-    <!-- === CENTER PHONE: Welcome Screen === -->
-    <g transform="translate(450,40)" filter="url(#shadow)">
-      <rect x="0" y="0" width="320" height="620" rx="50" fill="#111"/>
-      <rect x="12" y="20" width="296" height="580" rx="42" fill="#fff"/>
-      
-      <!-- Logo -->
-      <rect x="120" y="70" width="80" height="80" rx="16" fill="url(#yellowGrad)"/>
-      <circle cx="160" cy="110" r="8" fill="#111"/>
-      <circle cx="172" cy="100" r="8" fill="#111"/>
-      <circle cx="148" cy="100" r="8" fill="#111"/>
-      <circle cx="160" cy="90" r="8" fill="#111"/>
-
-      <text x="160" y="190" text-anchor="middle" class="header">Welcome</text>
-      <text x="160" y="210" text-anchor="middle" class="small">Let’s start with your phone number</text>
-
-      <!-- Input -->
-      <rect x="50" y="240" width="220" height="50" rx="12" fill="#fff" stroke="#ddd"/>
-      <text x="70" y="270" class="text bold">+254 | 54</text>
-
-      <!-- Continue -->
-      <rect x="50" y="320" width="220" height="50" rx="12" class="btn"/>
-      <text x="160" y="352" text-anchor="middle" class="bold" fill="#111">Continue</text>
-
-      <text x="160" y="385" text-anchor="middle" class="small">or with</text>
-
-      <!-- OAuth buttons -->
-      <rect x="50" y="400" width="220" height="38" rx="10" fill="#f5f5f5" stroke="#ddd"/>
-      <text x="160" y="425" text-anchor="middle" class="text">Google</text>
-
-      <rect x="50" y="445" width="220" height="38" rx="10" fill="#f5f5f5" stroke="#ddd"/>
-      <text x="160" y="470" text-anchor="middle" class="text">Apple</text>
-
-      <rect x="50" y="490" width="220" height="38" rx="10" fill="#f5f5f5" stroke="#ddd"/>
-      <text x="160" y="515" text-anchor="middle" class="text">Email</text>
-
-      <text x="160" y="560" text-anchor="middle" class="small">BeePay • Secure Digital Payments</text>
-    </g>
-
-    <!-- === RIGHT PHONE: Activity & Map === -->
-    <g transform="translate(860,80)" filter="url(#shadow)">
-      <rect x="0" y="0" width="300" height="520" rx="40" fill="#111"/>
-      <rect x="10" y="20" width="280" height="480" rx="32" fill="#fff"/>
-
-      <text x="150" y="70" text-anchor="middle" class="header">Transactions</text>
-      <text x="150" y="95" text-anchor="middle" class="small">Last updated 3 mins ago</text>
-
-      <!-- Transaction card -->
-      <rect x="30" y="120" width="240" height="60" rx="12" fill="#f8f8f8"/>
-      <circle cx="60" cy="150" r="14" fill="url(#yellowGrad)"/>
-      <text x="90" y="146" class="text bold">Payment to James</text>
-      <text x="90" y="162" class="small">KES 3,200 • Completed</text>
-
-      <rect x="30" y="190" width="240" height="60" rx="12" fill="#f8f8f8"/>
-      <circle cx="60" cy="220" r="14" fill="url(#yellowGrad)"/>
-      <text x="90" y="216" class="text bold">Wallet Top-up</text>
-      <text x="90" y="232" class="small">KES 5,000 • Success</text>
-
-      <rect x="30" y="260" width="240" height="60" rx="12" fill="#f8f8f8"/>
-      <circle cx="60" cy="290" r="14" fill="url(#yellowGrad)"/>
-      <text x="90" y="286" class="text bold">FX Transfer</text>
-      <text x="90" y="302" class="small">USD 40 • Pending</text>
-
-      <!-- Map footer -->
-      <rect x="30" y="370" width="240" height="100" rx="16" fill="url(#yellowGrad)"/>
-      <text x="150" y="415" text-anchor="middle" font-size="16" font-weight="800" fill="#111">Nearby Agents</text>
-      <text x="150" y="440" text-anchor="middle" class="small">Find BeePay cash points</text>
-    </g>
-  </svg>
-</div>
-
+    <div class="hero-right">
+      <img src="assets/mockup.png" alt="BeePay App Mockups" class="mockup-image">
+    </div>
 
   </div>
 </section>
     </main>
-
+    
+    <!-- ================= FOOTER ================= -->
     
     <footer class="site-footer">
       <div class="footer-container">
@@ -665,25 +435,22 @@
             <a href="#"><img src="./assets/apple store.svg" alt="App Store" /></a>
             <a href="#"><img src="./assets/google-play-badge-logo-svgrepo-com.svg" alt="Google Play" /></a>
           </div>
-          <p class="copyright">
-            © <span id="year"></span> BeePay. All rights reserved. <br>Designed by <a href=""><span class="highlight">DevNjoro</span></a>
-          </p>
+          
         </div>
 
         <div class="footer-center scroll-fade">
           <h4>Contact Us</h4>
           <ul>
-            <li><span class="highlight">Phone no:</span><a href="#hero"></a></li>
-            <li><span class="highlight">Email:</span><a href="#services">Services</a></li>
-            <li><span class="highlight">Adress:</span><a href="#advantage">Advantage</a></li>
-            <li><span class="highlight">Website:</span><a href="#faq">FAQ</a></li>
+            <li><span class="highlight">Phone no:</span><a href="#hero">+254 712345678</a></li>
+            <li><span class="highlight">Email:</span><a href="#services">services@beepay.co.ke</a></li>
+            <li><span class="highlight">Adress:</span><a href="#advantage">Nairobi, Kenya</a></li>
+            <li><span class="highlight">Website:</span><a href="https://beepay-six.vercel.app/" target="_blank">beepay.com</a></li>
           </ul>
         </div>
 
         <div class="footer-right scroll-fade">
           <h4>Our Support</h4>
           <ul>
-            <li><a href="#contact">Contact Us</a></li>
             <li><a href="#faq">Help & FAQs</a></li>
           </ul>
 
@@ -702,9 +469,23 @@
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
           </div>
+          
+        </div>
+        <div class="footer-bottom">
+        <p class="copyright">
+            © <span id="year"></span> BeePay. All rights reserved. <br>Designed by <a href="https://njoro-dev.vercel.app/" target="_blank"><span class="highlight">DevNjoro</span></a>
+          </p>
         </div>
       </div>
     </footer>
+
+    <section class="beepay-brand-section">
+  <div class="brand-overlay">
+    <div class="brand-content">
+    </div>
+  </div>
+</section>
+
 
     
     <script src="./script.js"></script>

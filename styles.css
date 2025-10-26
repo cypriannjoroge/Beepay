@@ -1,5 +1,5 @@
 :root{
-  --bg: #0f0f12;
+  --bg: #111;
   --surface: #15151b;
   --text: #ffffff;
   --muted: #b7b8bd;
@@ -365,7 +365,10 @@ body{
 
   /* Hide nav links and extras */
   .nav-links,
-  .nav-cta {
+  .nav-cta .button.primary{
+    display: none;
+  }
+  .nav-cta .chip1{
     display: none;
   }
 
@@ -527,6 +530,8 @@ body{
     justify-content: center;
     padding: 0.5rem;
     transform: none;
+    display: flex;
+    position: relative;
   }
 
   .hero-media img {
@@ -557,12 +562,15 @@ body{
     justify-content: center;
     padding: 0.5rem;
     transform: none;
+    display: flex;
   }
 
   .hero-media img {
     max-width: 100%;
     transform: translateY(20px);
     opacity: 0.95;
+    display: flex;
+    height: auto;
   }
 }
 
@@ -679,15 +687,14 @@ body{
 .phone-card{
   border-radius:28px;
   overflow:hidden;
-  border:1px solid var(--stroke);
   height: auto;
   width: min(400px, 100%);
   transition: all 1.2s ease;
   transform: translateY(40px);
   opacity: 0;
-  background:linear-gradient(180deg, #1a1a21, #0f0f12); 
-  box-shadow:var(--shadow)
+  background:#111; 
 }
+
 
 .phone-card.visible{
   transform: translateY(0);
@@ -711,12 +718,6 @@ body{
   height:auto
 }
 
-.hero-media .phone-card svg {
-  width: 100%;
-  max-width: 700px;
-  transform: scale(1.15);
-  transform-origin: center;
-}
 
 
 .glow{
@@ -1080,9 +1081,7 @@ body{
 .phone-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #ffe94d, #f7d308);
   border-radius: 30px;
-  box-shadow: 0 25px 60px rgba(247, 211, 8, 0.3);
   z-index: 1;
   transform: scale(1.05);
 }
@@ -1145,10 +1144,8 @@ body{
 
 
 .phone-card {
-  background: linear-gradient(180deg, #1a1a21, #0f0f12);
-  padding: 2rem;
-  border-radius: 30px;
-  box-shadow: 0 20px 40px rgba(247, 211, 8, 0.3);
+  background: #111;
+  padding: 1rem;
   transform: translateY(50px);
   opacity: 0;
   transition: all 0.8s ease-in-out;
@@ -1248,148 +1245,275 @@ body{
 }
 
 
-/* Base Section */
-.advantage {
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  text-align: center;
-  padding: 6rem 2rem;
+/* ============================================
+   ⚡ BEEPAY ADVANTAGE SECTION (BeeClub Style)
+============================================ */
+#advantage {
   position: relative;
+  background: #0d0d0d;
+  color: #fff;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(247, 211, 8, 0.05);
-  border-radius: 20px;
-}
-
-.adv-header {
-  margin-bottom: 1rem;
-}
-
-.adv-tag {
-  background: transparent;
-  border: 1px solid #f7d308;
-  color: #f7d308;
-  border-radius: 20px;
-  padding: 0.4rem 1rem;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  cursor: default;
-}
-
-.advantage h2 {
-  font-size: 2.4rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.highlight {
-  color: #f7d308;
-}
-
-/* Layout Grid */
-.advantage-wrapper {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 2rem;
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+/* Background rings video */
+#advantage .bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+/* Header */
+#advantage .adv-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  z-index: 2;
+  position: relative;
+}
+
+#advantage .adv-tag {
+  background: #f7d308;
+  color: #111;
+  border: none;
+  padding: 0.5rem 1.3rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#advantage .adv-tag:hover {
+  background: #ffe94d;
+  transform: translateY(-2px);
+}
+
+#advantage .adv-header h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+#advantage .highlight {
+  color: #f7d308;
+}
+
+/* Wrapper Layout */
+.advantage-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Left & Right Columns */
+.adv-left,
+.adv-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 /* Card Styling */
 .adv-card {
-  background: #1a1a1a;
-  width: auto;
-  height: auto;
-  padding: 1.5rem;
-  border-radius: 20px;
-  margin: 1rem 0;
-  box-shadow: 0 0 20px rgba(247, 211, 8, 0.05);
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 .adv-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 30px rgba(247, 211, 8, 0.15);
+  transform: translateY(-5px);
+  border-color: rgba(247, 211, 8, 0.5);
+  box-shadow: 0 15px 40px rgba(247, 211, 8, 0.15);
 }
 
-.icon {
-  background: rgba(247, 211, 8, 0.1);
+.adv-card span {
+  font-size: 1.1rem;
+  font-weight: 700;
   color: #f7d308;
-  width: 45px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.adv-card h3 {
-  font-size: 1rem;
-  margin-bottom: 0.4rem;
-  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 .adv-card p {
-  font-size: 0.9rem;
   color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-/* Center Phone */
+/* Center Phone Section */
 .adv-center {
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
+/* Hide phone mockup on mobile */
+@media (max-width: 768px) {
+  .adv-center {
+    display: none;
+  }
+}
+
+
+/* Glowing ring behind the phone */
 .phone-glow {
   position: absolute;
-  width: 320px;
-  height: 320px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(247, 211, 8, 0.25), transparent 70%);
-  filter: blur(40px);
-  animation: pulse 3s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(247, 211, 8, 0.4), transparent 70%);
+  filter: blur(60px);
+  animation: pulseGlow 6s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.1); }
 }
 
 .phone-frame {
-  background: #111;
-  opacity: 0.8;
-  border-radius: 60px;
-  padding: 0.1rem;
+  position: relative;
   z-index: 2;
-  animation: float 4s ease-in-out infinite;
+  width: 280px;
+  max-width: 90%;
 }
 
 .phone-frame img {
-  width: 300px;
-  border-radius: 25px;
-  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 40px;
+  box-shadow: 0 15px 40px rgba(247, 211, 8, 0.25);
 }
 
-/* Animations */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
+/* Fade-out at the bottom of the section */
+#advantage::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(to bottom, rgba(13, 13, 13, 0) 0%, #000 100%);
+  z-index: 5;
+}
+
+/* Footer CTA */
+.adv-footer {
+  margin-top: 4rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-btn {
+  background: linear-gradient(180deg, #ffe94d, #f7d308);
+  color: #111;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(247, 211, 8, 0.25);
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(247, 211, 8, 0.35);
+}
+
+/* ============================================
+   📱 RESPONSIVE DESIGN
+============================================ */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .advantage-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
-  50% {
-    transform: translateY(-10px);
+
+  .adv-left,
+  .adv-right {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .adv-card {
+    width: 45%;
+    min-width: 250px;
+  }
+
+  .adv-center {
+    order: -1;
+  }
+
+  .phone-glow {
+    width: 280px;
+    height: 280px;
+    filter: blur(50px);
+  }
+
+  .phone-frame {
+    width: 240px;
   }
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.6;
-    transform: scale(1);
+/* Mobile */
+@media (max-width: 600px) {
+  #advantage {
+    padding: 4rem 1rem;
   }
-  50% {
-    opacity: 1;
-    transform: scale(1.1);
+
+  .adv-left,
+  .adv-right {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .adv-card {
+    width: 100%;
+    text-align: center;
+  }
+
+  .phone-frame {
+    width: 220px;
+  }
+
+  .adv-footer {
+    margin-top: 2.5rem;
+  }
+
+  .cta-btn {
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
   }
 }
+
 
 /* Footer Button */
 .adv-footer {
@@ -1703,38 +1827,56 @@ body{
 }
 
 /* FAQ Section */
+/* ============================================
+   💬 BeePay FAQ Section (Updated Responsive Version)
+============================================ */
 .faq-section {
-  background: #0d0d0d;
+  background: radial-gradient(circle at top left, rgba(247, 211, 8, 0.08), transparent 60%), #0d0d0d;
   color: #fff;
   padding: 6rem 2rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-in-out;
+}
+
+.faq-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .faq-container {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 1.4fr;
   gap: 4rem;
-  max-width: 1100px;
   width: 100%;
+  max-width: 1200px;
   align-items: flex-start;
 }
 
-/* Left Side */
+/* LEFT SIDE */
 .faq-intro {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding-right: 2rem;
 }
 
 .ask-btn {
   background: #f7d308;
   border: none;
   color: #000;
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem 1.3rem;
   border-radius: 25px;
   font-size: 0.9rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   cursor: pointer;
+  box-shadow: 0 5px 15px rgba(247, 211, 8, 0.25);
   transition: all 0.3s ease;
 }
 
@@ -1744,38 +1886,44 @@ body{
 }
 
 .faq-intro h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 800;
   line-height: 1.2;
-  margin-bottom: 1rem;
   text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 
-.highlight {
+.faq-intro h2 span {
   color: #f7d308;
 }
 
 .faq-intro p {
   color: #aaa;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.6;
-  max-width: 320px;
+  max-width: 360px;
 }
 
-/* Right Side - FAQ List */
+/* RIGHT SIDE - FAQ LIST */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Each FAQ Item */
 .faq-list details {
   background: #1a1a1a;
   border-radius: 12px;
-  margin-bottom: 1rem;
   padding: 1.2rem 1.5rem;
-  border: 1px solid transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .faq-list details[open] {
   border-color: #f7d308;
-  background: #222;
+  background: #202020;
   box-shadow: 0 0 20px rgba(247, 211, 8, 0.15);
 }
 
@@ -1787,6 +1935,8 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
+  outline: none;
 }
 
 .faq-list summary::after {
@@ -1794,6 +1944,7 @@ body{
   color: #f7d308;
   font-weight: bold;
   transition: transform 0.3s ease;
+  font-size: 1.3rem;
 }
 
 details[open] summary::after {
@@ -1805,55 +1956,83 @@ details[open] summary::after {
   margin-top: 0.8rem;
   font-size: 0.95rem;
   color: #ccc;
-  line-height: 1.5;
+  line-height: 1.6;
   animation: fadeIn 0.3s ease;
 }
 
-/* Animation */
+/* Smooth Opening Animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Scroll Fade-In */
-.faq-section {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease-in-out;
-}
+/* ============================================
+   📱 RESPONSIVE DESIGN
+============================================ */
 
-.faq-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Responsive */
-@media (max-width: 900px) {
+/* Tablets (<= 992px) */
+@media (max-width: 992px) {
   .faq-container {
     grid-template-columns: 1fr;
+    gap: 3rem;
     text-align: center;
   }
 
+  .faq-intro {
+    align-items: center;
+    text-align: center;
+    padding-right: 0;
+  }
+
   .faq-intro p {
-    margin: 0 auto 2rem;
+    max-width: 100%;
   }
-}
-@media (max-width: 1024px){
-  .faq-container{ 
-    grid-template-columns: 1fr; gap: 2rem; 
-  }
-}
-@media (max-width: 768px){
-  .faq-container{ 
-    grid-template-columns: 1fr; gap: 2rem; 
+
+  .faq-list details {
+    padding: 1rem 1.2rem;
   }
 }
 
-@media (max-width: 992px){
-  .faq-container{ 
-    grid-template-columns: 1fr; gap: 2rem; 
+/* Mobile (<= 768px) */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .faq-intro h2 {
+    font-size: 2rem;
+  }
+
+  .faq-list summary {
+    font-size: 1rem;
+  }
+
+  .faq-list p {
+    font-size: 0.9rem;
   }
 }
+
+/* Small Devices (<= 480px) */
+@media (max-width: 480px) {
+  .faq-intro h2 {
+    font-size: 1.7rem;
+  }
+
+  .faq-intro p {
+    font-size: 0.9rem;
+  }
+
+  .faq-list details {
+    padding: 1rem;
+  }
+}
+
 
 
 /* Background Video Styling */
@@ -1961,8 +2140,8 @@ details[open] summary::after {
 }
 
 .cta-top:hover {
-  background: #000;
-  color: #f7d308;
+  transform: translateY(-3px);
+  background: #111;
 }
 
 .hero-left h1 {
@@ -2010,6 +2189,7 @@ details[open] summary::after {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .mockup-image {
@@ -2017,7 +2197,6 @@ details[open] summary::after {
   max-width: 700px;
   height: auto;
   border-radius: 20px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
   transform: translateY(-20px);
   filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25));
   transition: transform 0.4s ease;
@@ -2454,6 +2633,154 @@ a,
   text-shadow: 0 0 8px rgba(247, 211, 8, 0.5);
 }
 
+/* ============================================
+   BeePay Brand Section - Responsive Version
+============================================ */
+.beepay-brand-section {
+  position: relative;
+  width: 100%;
+  min-height: 65vh;
+  background-image: url('./assets/background.png'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.brand-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Fading effect at the bottom */
+.beepay-brand-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
+  z-index: 2;
+}
+
+.brand-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: #fff;
+  padding: 4rem 2rem 6rem;
+  max-width: 720px;
+}
+
+.brand-content h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #f7d308;
+  margin-bottom: 1rem;
+}
+
+.brand-content h2 span {
+  color: #ffe94d;
+  background: linear-gradient(90deg, #ffe94d, #f7d308);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-content p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #ddd;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.brand-content .button.primary {
+  background: linear-gradient(180deg, #ffe94d, #f7d308);
+  color: #111;
+  font-weight: 600;
+  padding: 0.9rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(247, 211, 8, 0.25);
+  transition: all 0.3s ease;
+}
+
+.brand-content .button.primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(247, 211, 8, 0.35);
+}
+
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+
+/* Tablets (medium) */
+@media (max-width: 992px) {
+  .beepay-brand-section {
+    min-height: 55vh;
+    background-position: center;
+  }
+
+  .brand-content {
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  .brand-content h2 {
+    font-size: 2.4rem;
+  }
+
+  .brand-content p {
+    font-size: 1.05rem;
+  }
+}
+
+/* Mobile (small) */
+@media (max-width: 768px) {
+  .beepay-brand-section {
+    min-height: 50vh;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .brand-overlay {
+    align-items: center;
+  }
+
+  .brand-content {
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .brand-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .brand-content p {
+    font-size: 0.95rem;
+  }
+
+  .brand-content .button.primary {
+    padding: 0.75rem 1.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small devices (very small screens) */
+@media (max-width: 480px) {
+  .brand-content h2 {
+    font-size: 1.5rem;
+  }
+  .brand-content p {
+    font-size: 0.9rem;
+  }
+}
+
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -2580,45 +2907,55 @@ a,
 .phone-frame-wrap { animation: floatPhone 6s ease-in-out infinite alternate; }
 @keyframes floatPhone { from{transform:translateY(0)} to{transform:translateY(-10px)} }
 
+
+
 /* ============================
-  Glow to BeePay SVG
+   🟡 BeePay Arrow Button Styling
 ============================ */
-.beepay-mockup {
-  filter: drop-shadow(0 0 30px rgba(247, 211, 8, 0.3))
-          drop-shadow(0 20px 60px rgba(247, 211, 8, 0.15));
-  transition: filter 0.3s ease, transform 0.4s ease;
-  transform-origin: center;
+.arrow-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
 }
 
-/* Optional: subtle hover or scroll-in effect */
-.beepay-mockup:hover {
-  filter: drop-shadow(0 0 50px rgba(247, 211, 8, 0.4))
-          drop-shadow(0 30px 80px rgba(247, 211, 8, 0.25));
-  transform: scale(1.03);
+/* Common arrow button styling */
+#prev, #next {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(247, 211, 8, 0.3);
+  color: #f7d308;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.8rem 1.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(247, 211, 8, 0.1);
 }
 
-@media (max-width: 768px) {
-  .beepay-mockup {
-    filter: drop-shadow(0 0 15px rgba(247, 211, 8, 0.25))
-            drop-shadow(0 10px 40px rgba(247, 211, 8, 0.1));
+/* Hover effect */
+#prev:hover, #next:hover {
+  background: linear-gradient(180deg, #ffe94d, #f7d308);
+  color: #111;
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(247, 211, 8, 0.25);
+}
+
+/* Active (pressed) effect */
+#prev:active, #next:active {
+  transform: scale(0.95);
+}
+
+/* Optional: add slight separation for left/right alignment */
+#prev {
+  margin-right: 1rem;
+}
+
+/* Responsive sizing for mobile */
+@media (max-width: 600px) {
+  #prev, #next {
+    font-size: 1.2rem;
+    padding: 0.6rem 1rem;
   }
 }
-
-/* Subtle float and fade animation for BeePay mockups */
-.beepay-mockup-triple {
-  animation: floatPhones 8s ease-in-out infinite alternate;
-  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.25));
-}
-
-@keyframes floatPhones {
-  from { transform: translateY(0); }
-  to { transform: translateY(-12px); }
-}
-
-/* On scroll or hover highlight */
-.beepay-mockup-triple:hover {
-  filter: drop-shadow(0 0 50px rgba(247,211,8,0.3))
-          drop-shadow(0 20px 60px rgba(247,211,8,0.2));
-  transition: filter 0.5s ease;
-}
-
