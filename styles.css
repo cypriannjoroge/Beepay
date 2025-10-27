@@ -657,7 +657,7 @@ body{
   display: flex;
   align-items: center;
   background: linear-gradient(to right, #f7d308, #f7d308);
-  max-width: 170px;
+  max-width: 200px;
   color: linear-gradient(to right, #f7d308, #f7d308);
   border-radius: 60px;
   padding: 6px 14px 6px 10px;
