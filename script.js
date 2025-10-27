@@ -1,17 +1,96 @@
+// Utility functions with error handling
+const $ = (sel, ctx = document) => {
+  try {
+    return ctx.querySelector(sel);
+  } catch (error) {
+    console.error(`Error in $(): ${error.message}`);
+    return null;
+  }
+};
 
-const $  = (sel, ctx = document) => ctx.querySelector(sel);
-const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+const $$ = (sel, ctx = document) => {
+  try {
+    return Array.from(ctx.querySelectorAll(sel));
+  } catch (error) {
+    console.error(`Error in $$(): ${error.message}`);
+    return [];
+  }
+};
+
+// Throttle function for scroll/resize events
+function throttle(callback, limit) {
+  let waiting = false;
+  return function() {
+    if (!waiting) {
+      callback.apply(this, arguments);
+      waiting = true;
+      setTimeout(() => {
+        waiting = false;
+      }, limit);
+    }
+  };
+}
+
+// Debounce function for window resize/scroll
+function debounce(callback, wait) {
+  let timeout;
+  return (...args) => {
+    const context = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => callback.apply(context, args), wait);
+  };
+}
 
 /* ---------- NAV TOGGLE ---------- */
 (() => {
-  const nav    = $('.nav');
-  const toggle = $('.nav-toggle');
-  if (!nav || !toggle) return;
-  toggle.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    nav.classList.toggle('open');
-  });
+  try {
+    const nav = $('.nav');
+    const toggle = $('.nav-toggle');
+    
+    if (!nav || !toggle) {
+      console.warn('Navigation elements not found');
+      return;
+    }
+
+    // Enhanced toggle function with ARIA attributes
+    const toggleNav = (expanded) => {
+      const isExpanded = expanded ?? (toggle.getAttribute('aria-expanded') === 'true');
+      toggle.setAttribute('aria-expanded', String(!isExpanded));
+      nav.classList.toggle('open', !isExpanded);
+      
+      // Lock body scroll when mobile menu is open
+      document.body.style.overflow = isExpanded ? '' : 'hidden';
+      
+      // Focus management
+      if (!isExpanded) {
+        const firstFocusable = nav.querySelector('a, button, [tabindex="0"]');
+        if (firstFocusable) firstFocusable.focus();
+      }
+    };
+
+    // Toggle on button click
+    toggle.addEventListener('click', () => toggleNav());
+    
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        toggleNav(true);
+        toggle.focus();
+      }
+    });
+    
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (nav.classList.contains('open') && 
+          !nav.contains(e.target) && 
+          e.target !== toggle) {
+        toggleNav(true);
+      }
+    });
+    
+  } catch (error) {
+    console.error('Error in navigation:', error);
+  }
 })();
 
 /* ---------- YEAR STAMP ---------- */
@@ -135,11 +214,11 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
   if (!langBtn || !langMenu) return;
 
   const translations = {
-    en: { title: "Send Money in seconds!", tagline: "Transparent, secure, and effortless.BeePay puts you in control.Instant, smart, and secure digital payments." },
-    es: { title: "Envía dinero en segundos!", tagline: "Transparente, seguro y sin esfuerzo. BeePay te da el control. Pagos digitales instantáneos, inteligentes y seguros." },
-    fr: { title: "Envoyez de l’argent en quelques secondes !", tagline: "Transparent, sécurisé et sans effort. BeePay vous donne le contrôle. Paiements numériques instantanés, intelligents et sûrs." },
-    de: { title: "Sende Geld in Sekunden!", tagline: "Transparent, sicher und mühelos. BeePay gibt dir die Kontrolle. Sofortige, intelligente und sichere digitale Zahlungen.Sofortige, intelligente und sichere digitale Zahlungen." },
-    sw: { title: "Tuma pesa kwa sekunde!", tagline: "Malipo ya haraka, bora, na salama mtandaoni." }
+    en: { title: "SEND MONEY IN SECONDS!", tagline: "Transparent, secure, and effortless.BeePay puts you in control.Instant, smart, and secure digital payments." },
+    es: { title: "ENVÍA DINERO EN SEGUNDOS!", tagline: "Transparente, seguro y sin esfuerzo. BeePay te da el control. Pagos digitales instantáneos, inteligentes y seguros." },
+    fr: { title: "ENVOYEZ DE L’ARGENT EN QUELQUES SECONDES!", tagline: "Transparent, sécurisé et sans effort. BeePay vous donne le contrôle. Paiements numériques instantanés, intelligents et sûrs." },
+    de: { title: "SENDEN SIE GELD IN SEKUNDEN!", tagline: "Transparent, sicher und mühelos. BeePay gibt dir die Kontrolle. Sofortige, intelligente und sichere digitale Zahlungen.Sofortige, intelligente und sichere digitale Zahlungen." },
+    sw: { title: "TUMA PESA KWA SEKUNDE!", tagline: "Malipo ya haraka, bora, na salama mtandaoni." }
   };
 
   function changeLanguage(code) {
@@ -160,6 +239,27 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
     langMenu.classList.remove('show');
     changeLanguage(lang);
   });
+
+  function changeLanguage(code) {
+  const t = translations[code]; 
+  if (!t) return;
+  
+  const titleEl = document.querySelector('#hero-heading') || document.querySelector('.hero h1');
+  const taglineEl = document.querySelector('.sub') || document.querySelector('.hero p');
+  
+  if (titleEl) {
+    titleEl.textContent = t.title;
+    titleEl.closest('[lang]').setAttribute('lang', code);
+  }
+  if (taglineEl) {
+    taglineEl.textContent = t.tagline;
+    taglineEl.closest('[lang]').setAttribute('lang', code);
+  }
+  
+  document.documentElement.lang = code; // Set language on html element
+  localStorage.setItem('preferredLang', code);
+}
+
 
   // Close on outside click / ESC
   document.addEventListener('click', (e) => {
@@ -203,8 +303,8 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
   const preloader = $('#preloader');
   if (!preloader) return;
   window.addEventListener('load', () => {
-    setTimeout(() => preloader.classList.add('fade-out'), 600);
-    setTimeout(() => preloader.remove(), 1600);
+    setTimeout(() => preloader.classList.add('fade-out'), 300);
+    setTimeout(() => preloader.remove(), 900);
   });
 })();
 
