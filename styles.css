@@ -117,10 +117,20 @@ body{
   padding:0;
 }
 
-.nav-links a{
-  color:#ffffff;
-  text-decoration:none;
-  font-weight:700;
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  display: block;
+  padding: 12px 20px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--brand);
+  border-radius: 4px;
 }
 
 .nav-links a:hover{
@@ -366,9 +376,9 @@ body{
 
 @media (max-width: 992px) {
   .site-header {
-    background: linear-gradient(to bottom, rgba(15,15,18,.9), rgba(15,15,18,.4));
+    background: linear-gradient(to bottom, rgba(15,15,18,.98), rgba(15,15,18,.95));
     padding: 0.8rem 1.2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .nav {
@@ -384,19 +394,29 @@ body{
   }
 
   /* Hide nav links and primary button */
-  .nav-links,
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(15, 15, 18, 0.98);
+    padding: 20px 0;
+    margin: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 99;
+  }
+  
+  .nav-links.open {
+    display: block;
+  }
+  
+  .nav-cta .chip1,
   .nav-cta .button.primary {
     display: none;
   }
   
-  /* Show theme toggle in mobile view */
-  .nav-cta .chip1 {
-    display: flex;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    order: 2;
-  }
+  /* Theme toggle is now hidden in mobile view */
 
   /* Hamburger (menu button) */
   .nav-toggle {
@@ -581,7 +601,7 @@ body{
   }
 }
 
-/* 📱 Mobile devices */
+/* Mobile devices */
 @media (max-width: 768px) {
   .hero-media {
     align-items: center;
@@ -835,13 +855,11 @@ body{
   .stats {
     gap: 1rem;
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding: 1rem 0.5rem;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    margin: 0 -0.5rem;
-    width: calc(100% + 1rem);
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem 0;
+    margin: 0 auto;
+    max-width: 100%;
   }
   
   .stats::-webkit-scrollbar {
@@ -3008,23 +3026,29 @@ a,
   width: 100%;
   min-height: 65vh;
   background-image: url('./assets/backgroundlogo.png'); 
-  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center bottom;
+  background-position: center center;
+  background-size: cover;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   overflow: hidden;
+  /* Cross-browser compatibility */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-attachment: scroll; /* Better for mobile performance */
 }
 
 .brand-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, #000 100%);
   z-index: 1;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  padding-bottom: 2rem;
 }
 
 /* Fading effect at the bottom */
@@ -3034,9 +3058,9 @@ a,
   bottom: 0;
   left: 0;
   right: 0;
-  height: 180px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
-  z-index: 2;
+  height: 30%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 100%);
+  z-index: 1;
 }
 
 .brand-content {
@@ -3087,52 +3111,95 @@ a,
 
 /* ========== RESPONSIVE BREAKPOINTS ========== */
 
-/* Tablets (medium) */
-@media (max-width: 992px) {
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
   .beepay-brand-section {
-    min-height: 55vh;
-    background-position: center;
-  }
-
-  .brand-content {
-    padding: 3rem 1.5rem 5rem;
-  }
-
-  .brand-content h2 {
-    font-size: 2.4rem;
-  }
-
-  .brand-content p {
-    font-size: 1.05rem;
+    min-height: 70vh;
   }
 }
 
-/* Mobile (small) */
-@media (max-width: 768px) {
+/* Laptops and small desktops */
+@media (max-width: 1199px) {
+  .beepay-brand-section {
+    min-height: 60vh;
+  }
+}
+
+/* Tablets (landscape) */
+@media (max-width: 1024px) {
+  .beepay-brand-section {
+    min-height: 55vh;
+  }
+}
+
+/* Tablets (portrait) */
+@media (max-width: 991px) {
   .beepay-brand-section {
     min-height: 50vh;
-    background-size: cover;
-    background-position: center;
   }
+}
 
+/* Large mobile devices (landscape) */
+@media (max-width: 768px) {
+  .beepay-brand-section {
+    min-height: 45vh;
+    background-position: center 40%;
+  }
+  
   .brand-overlay {
     align-items: center;
+    padding-bottom: 2rem;
   }
 
   .brand-content {
-    padding: 2.5rem 1rem 4rem;
+    padding: 2rem 1.5rem 3rem;
   }
 
   .brand-content h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
+}
 
+/* Medium mobile devices */
+@media (max-width: 575px) {
+  .beepay-brand-section {
+    min-height: 40vh;
+    background-position: center 50%;
+  }
+  
+  .brand-content {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+  
+  .brand-content h2 {
+    font-size: 1.75rem;
+  }
+  
   .brand-content p {
     font-size: 0.95rem;
   }
-
+  
   .brand-content .button.primary {
-    padding: 0.75rem 1.6rem;
+    padding: 0.7rem 1.4rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 375px) {
+  .beepay-brand-section {
+    min-height: 35vh;
+  }
+  
+  .brand-content {
+    padding: 1.5rem 1rem 2rem;
+  }
+  
+  .brand-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .brand-content p {
     font-size: 0.9rem;
   }
 }
