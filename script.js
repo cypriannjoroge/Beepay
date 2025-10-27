@@ -79,13 +79,24 @@ function debounce(callback, wait) {
       }
     });
     
-    // Close when clicking outside
-    document.addEventListener('click', (e) => {
+    // Close when clicking outside or on a nav link
+    const closeMenu = (e) => {
       if (nav.classList.contains('open') && 
-          !nav.contains(e.target) && 
-          e.target !== toggle) {
+          (!nav.contains(e.target) || e.target.closest('.nav-links a'))) {
         toggleNav(true);
       }
+    };
+    
+    document.addEventListener('click', closeMenu);
+    
+    // Close menu when a nav link is clicked (for touch devices)
+    const navLinks = nav.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (nav.classList.contains('open')) {
+          toggleNav(true);
+        }
+      });
     });
     
   } catch (error) {
