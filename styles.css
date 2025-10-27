@@ -491,7 +491,7 @@ body{
   display:grid;
   grid-template-columns:1.2fr 1fr;
   gap:40px;
-  align-items:center;
+   align-items:center;
   padding-block:48px
 }
 .hero .eyebrow{
@@ -657,12 +657,12 @@ body{
   display: flex;
   align-items: center;
   background: linear-gradient(to right, #f7d308, #f7d308);
+  max-width: 170px;
   color: linear-gradient(to right, #f7d308, #f7d308);
   border-radius: 60px;
   padding: 6px 14px 6px 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(247,211,8,.15);
   font-weight: 700;
-  gap: 10px;
 }
 
 .avatars {
@@ -746,6 +746,7 @@ body{
   display:inline-block;
   background:rgba(247,211,8,.15);
   border:1px solid var(--brand);
+  margin-bottom: 1.5rem;
   color:#fce98b;
   padding:4px 10px;
   border-radius:999px;
@@ -1839,10 +1840,22 @@ summary:focus {
   position: relative;
   text-align: center;
   overflow: visible;
+  margin-top: 0;
+  padding-top: 2rem;
   opacity: 0;
   transform: translateY(50px);
   transition: all 1.2s ease;
   margin-block: 80px;
+}
+.video .eyebrow{
+  display:inline-block;
+  background:rgba(247,211,8,.15);
+  border:1px solid var(--brand);
+  margin-bottom: 2.5rem;
+  color:#fce98b;
+  padding:4px 10px;
+  border-radius:999px;
+  font-weight:700
 }
 
 .video.loaded {
